@@ -1,0 +1,75 @@
+<?php include $_SERVER['DOCUMENT_ROOT'].'/template.php'; ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <title><mt:ArchiveTitle> Archives, on <mt:BlogName></title>
+    <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
+</head>
+
+<body id="<mt:BlogTemplateSetID>">
+
+
+
+<mt:Include module="Header">
+
+
+
+
+
+<div id="container">
+
+
+
+
+
+
+<div id="sidebar">
+
+<div id="path"><span><a href="<mt:BlogURL>">Home</a> <span><a href="../"><mt:ArchiveDate format="%Y"> Archives</a> <span><MTArchiveTitle> Archives</span></span></span></div>
+
+<MTArchivePrevious>
+<div id="previous"><span>Older:</span> <a href="<mt:ArchiveLink>"><mt:ArchiveTitle> Archives</a></div>
+</MTArchivePrevious>
+
+<MTArchiveNext>
+<div id="next"><span>Newer:</span> <a href="<mt:ArchiveLink>"><mt:ArchiveTitle> Archives</a></div>
+</MTArchiveNext>
+
+</div>
+
+
+
+<div id="content">
+
+
+<h1><MTArchiveTitle> Archives</h1>
+
+
+
+<p>Contains <MTArchiveCount> entries.</p>
+
+
+<ul>
+<MTEntries sort_order="ascend">
+<li><MTEntryDate format="%Y/%m/%d">: <?php
+
+$breaktag = ' ';
+
+echo '<MTEntryCategories glue=",' . $breaktag . '"><MTParentCategories glue="' . $divider . '"><a href="<MTCategoryArchiveLink>"><MTCategoryLabel smarty_pants="1"></a></MTParentCategories></MTEntryCategories>' . $divider . ' ';
+
+?><a href="<MTEntryPermalink>"><MTEntryTitle smarty_pants="1" widont="1"></a></li>
+</MTEntries>
+</ul>
+
+
+
+
+<mt:Ignore> close the "content" div container </mt:Ignore>
+</div>
+
+</div>
+
+
+<mt:Include module="Footer">

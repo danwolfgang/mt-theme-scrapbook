@@ -1,0 +1,76 @@
+<?php include($_SERVER['DOCUMENT_ROOT'].'/template.php'); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <title>Journal Entries, on <mt:BlogName></title>
+    <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/Danandsherreecom" />
+</head>
+
+<body id="<mt:BlogTemplateSetID>">
+
+
+
+<mt:Include module="Header">
+
+
+
+<div id="container">
+
+
+<div id="sidebar">
+    <div id="path"><span><a href="<mt:BlogURL>">Home</a> <span>Journal Entries</span></span></div>
+    
+</div>
+
+
+
+<div id="content">
+
+    <h1>Journal Entries</h1>
+
+    <div style="margin-top: -25px;">
+
+        <div style="float: right; width: 250px; margin: 0 -10px 10px 25px;">
+            <h2 style="margin-top: 0;">Recently Written</h2>
+            <ul style="margin-top: -10px;">
+            <mt:Entries lastn="10">
+                <li><a href="<mt:EntryPermalink>" title="<mt:EntryDate format="%x">"><mt:EntryTitle smarty_pants="1"></a></li>
+            </mt:Entries>
+            </ul>
+        </div>
+
+
+        <div class="categories">
+            <h2 style="margin-bottom: 0px;">Recently-Updated Categories</h2>
+            <ul>
+            <mt:PeakCategories days="180">
+                <li><a href="<mt:CategoryArchiveLink>" title="<mt:CategoryDescription remove_html="1">"><mt:CategoryLabel smarty_pants="1"></a></li>
+            </mt:PeakCategories>
+            </ul>
+
+            <h2 style="margin-bottom: 0px;">All Categories</h2>
+            <mt:TopLevelCategories>
+                <mt:SubCatIsFirst><ul></mt:SubCatIsFirst>
+                <mt:IfNonZero tag="MTCategoryCount">
+                    <li>
+                        <a href="<mt:CategoryArchiveLink>" title="<mt:CategoryDescription remove_html="1">"><mt:CategoryLabel smarty_pants="1"></a>
+                </mt:IfNonZero>
+                <mt:SubCatsRecurse>
+                    </li>
+                <mt:SubCatIsLast></ul></mt:SubCatIsLast>
+            </mt:TopLevelCategories>
+        </div>
+
+    </div>
+
+<mt:Ignore> close the "content" div container </mt:Ignore>
+</div>
+
+</div>
+
+
+<mt:Include module="Footer">

@@ -1,0 +1,178 @@
+<?php include $_SERVER['DOCUMENT_ROOT'].'/template.php'; ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <title><MTPageTitle remove_html="1">, on <mt:BlogName></title>
+    <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
+    <script type="text/javascript" src="<mt:Link template="javascript">"></script>
+
+<script type="text/javascript" src="/styles/js/prototype.js"></script>
+<script type="text/javascript" src="/styles/js/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" src="/styles/js/lightbox.js"></script>
+
+<link rel="stylesheet" href="/styles/css/lightbox.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="<MTStaticWebPath>prototype.lite.js"></script>
+<script type="text/javascript" src="<MTStaticWebPath>moo.ajax.js"></script>
+<script type="text/javascript" src="<MTBlogURL>ajaxrating.js"></script>
+<link rel="stylesheet" href="<mt:BlogURL>ajaxrating.css" type="text/css" />
+
+
+
+</head>
+
+<body id="<mt:BlogTemplateSetID>">
+
+
+
+<mt:Include module="Header">
+
+
+
+
+
+<div id="container">
+
+
+
+
+
+
+<div id="sidebar">
+
+<div id="path"><span><a href="<mt:BlogURL>">Home</a> 
+<span><mt:PageFolder><a href="<mt:BlogURL><mt:FolderBasename>/"><mt:FolderLabel></a></mt:PageFolder>
+    <span><mt:PageTitle smarty_pants="1"></span></span></div>
+
+
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-0046305191831323";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as";
+google_ad_type = "text_image";
+//2007-10-06: 125x125 ATF Sidebar, Individual Entry
+google_ad_channel = "4239325986+1150505122";
+google_color_border = "A64D4A";
+google_color_bg = "8B6439";
+google_color_link = "F2ECDC";
+google_color_text = "F2ECDC";
+google_color_url = "F2ECDC";
+google_ui_features = "rc:10";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+</div>
+
+
+
+<div id="content">
+
+<div class="adlinks">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0046305191831323";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+//2007-09-10: Top Link Unit
+google_ad_channel = "3200686530";
+
+<?php adsense_colors(); ?>
+
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+
+
+<h1><MTPageTitle smarty_pants="1" widont="1"></h1>
+
+<mt:IfNonEmpty tag="PageMore">
+	<div class="individualarchive-ad-top">
+		<script type="text/javascript"><!--
+		google_ad_client = "pub-0046305191831323";
+		/* 300x250, created 2/22/08 */
+		google_ad_slot = "8566473201";
+		google_ad_width = 300;
+		google_ad_height = 250;
+		//-->
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div>
+<mt:Else>
+    <div style="text-align: center;">
+		<script type="text/javascript"><!--
+		google_ad_client = "pub-0046305191831323";
+		/* 468x60, created 2/22/08 */
+		google_ad_slot = "8869291292";
+		google_ad_width = 468;
+		google_ad_height = 60;
+		//-->
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div>
+</mt:IfNonEmpty>
+
+<div>
+
+<MTPageBody smarty_pants="1" acronym="1">
+
+
+</div>
+
+
+
+<mt:IfNonEmpty tag="PageMore">
+    <a class="more" name="more"></a>
+    <div>
+        <MTPageMore smarty_pants="1" acronym="1" widont="1">
+    </div>
+
+
+    <div class="individualarchive-ad">
+        <script type="text/javascript"><!--
+          amazon_ad_tag = "danandsherree-20";  amazon_ad_width = "468";  amazon_ad_height = "60";  amazon_ad_price = "retail";  amazon_ad_border = "hide";  amazon_color_background = "F2ECDC";  amazon_color_text = "342A1F";  amazon_color_link = "7C4741";//--></script>
+        <script type="text/javascript" src="http://www.assoc-amazon.com/s/ads.js"></script>
+    </div>
+
+</mt:IfNonEmpty>
+
+    <mt:Include module="Comments">
+
+<mt:Ignore> close the "content" div container </mt:Ignore>
+
+
+</div>
+
+
+
+
+
+<div id="right-sidebar">
+
+
+</div>
+
+
+
+
+</div>
+
+<mt:Include module="Footer">

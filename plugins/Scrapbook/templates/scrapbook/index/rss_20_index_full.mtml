@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"  
+<MTBlogIfCCLicense>xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" </MTBlogIfCCLicense>xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+
+<channel>
+<title><mt:BlogName remove_html="1" encode_xml="1"></title>
+<link><mt:BlogURL></link>
+<description><mt:BlogDescription remove_html="1" encode_xml="1"></description>
+<language>en</language>
+<managingEditor><MTEntries lastn="1"><mt:EntryAuthorEmail spam_protect="1"></MTEntries></managingEditor>
+<copyright>Copyright <mt:Date format="%Y"></copyright>
+<lastBuildDate><MTEntries lastn="1"><mt:EntryDate format_name="rfc822"></MTEntries></lastBuildDate>
+<pubDate><mt:Date format_name="rfc822"></pubDate>
+<MTBlogIfCCLicense><creativeCommons:license><mt:BlogCCLicenseURL></creativeCommons:license></MTBlogIfCCLicense>
+<generator>http://www.movabletype.org/?v=<mt:Version></generator>
+<webMaster><MTEntries lastn="1"><mt:EntryAuthorEmail spam_protect="1"></MTEntries></webMaster>
+<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+
+<MTEntries lastn="25">
+<item>
+<title><MTEntryTitle remove_html="1" encode_xml="1"></title>
+<description><MTEntryExcerpt encode_xml="1"></description>
+<link><MTEntryPermalink encode_xml="1"></link>
+<guid isPermaLink="false"><MTEntryID>@<MTBlogURL></guid>
+<content:encoded><MTEntryBody encode_xml="1"><MTEntryMore encode_xml="1"><MTIfNonEmpty tag="entrypoll"><mt:SetVarBlock name="poll_id"><mt:EntryPoll></mt:SetVarBlock><mt:IfPollIncluded poll_id="$poll_id"><![CDATA[<p>This entry contains a poll. If you'd like to vote in it, <a href="<mt:EntryPermalink>">visit the entry</a>.]]></mt:IfPollIncluded></MTIfNonEmpty></content:encoded>
+<category><mt:EntryCategory remove_html="1" encode_xml="1"></category>
+<MTEntryIfTagged><MTEntryTags>
+    <category domain="http://www.sixapart.com/ns/types#tag"><mt:TagName remove_html="1" encode_xml="1"></category>
+</MTEntryTags></MTEntryIfTagged>
+<pubDate><mt:EntryDate format_name="rfc822"></pubDate>
+<trackback:ping><mt:EntryTrackbackLink></trackback:ping>
+<MTPingsSent><trackback:about><mt:PingsSentURL></trackback:about></MTPingsSent>
+<MTEntryIfAllowComments>
+<slash:comments><mt:EntryCommentCount></slash:comments>
+<comments><mt:EntryPermalink>#comments</comments>
+</MTEntryIfAllowComments>
+</item>
+</MTEntries>
+
+</channel>
+</rss>

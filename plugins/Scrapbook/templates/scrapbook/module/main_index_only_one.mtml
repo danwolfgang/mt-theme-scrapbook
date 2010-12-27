@@ -1,0 +1,24 @@
+<h2 class="spacebefore">
+    <a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1" widont="1"></a>
+</h2>
+
+<iframe src="http://www.facebook.com/plugins/like.php?href=<mt:EntryPermalink encode_url="1">&amp;layout=standard&amp;show_faces=false&amp;width=500&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:35px;" allowTransparency="true"></iframe>
+
+<div class="byline">By <MTEntryAuthor>, published on <MTEntryDate format="%B %e, %Y at %l:%M %p"> <acronym title="UTC -5 hours, Eastern Time">EST</acronym></div>
+
+  <mt:EntryBody smarty_pants="1" acronym="1" widont="1">
+	
+<MTIfNonEmpty tag="entrypoll">
+    <mt:SetVarBlock name="poll_id"><mt:EntryPoll></mt:SetVarBlock>
+    <mt:IfPollIncluded poll_id="$poll_id">
+    <div id="poll">
+        <mt:CompletePoll poll_id="$poll_id">
+    </div>
+    </mt:IfPollIncluded>
+</MTIfNonEmpty>
+
+  <MTEntryIfExtended>
+  <p>Continue reading <a href="<MTEntryPermalink>"><MTEntryTitle smarty_pants="1"></a>.</p>
+  </MTEntryIfExtended>
+
+<div class="divider<?php echo mt_rand(1, 2); ?>"></div>

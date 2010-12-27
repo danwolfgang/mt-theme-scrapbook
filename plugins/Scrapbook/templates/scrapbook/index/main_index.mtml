@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta property="fb:app_id" content="35113519158" />
+    <title>Welcome to <mt:BlogName>!</title>
+
+    <link rel="shortcut" href="<mt:BlogURL>favicon.ico" />
+    <link rel="stylesheet" href="<mt:StaticWebPath>plugins/ActionStreams/css/action-streams.css" type="text/css" />
+    <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/Danandsherreecom" />
+
+    <MTBlogIfCCLicense>
+    <mt:CCLicenseRDF>
+    </MTBlogIfCCLicense>
+    <meta name="verify-v1" content="JwI28u6o43V+LO9tpCSuyyCi5GBxHGRtK/bYOkw3NMY=" />
+
+    <script type="text/javascript" src="/jquery/jquery-1.2.6.min.js"></script>
+    <script type="text/javascript" src="/jquery/jquery.form.js"></script>
+    <script type="text/javascript" src="/jquery/jquery_lightbox/js/jquery.lightbox.packed.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $.Lightbox.construct({
+            show_info:      true,
+            show_extended_info: true,
+            show_linkback:  false,
+        });
+    });
+    </script>
+    <script type="text/javascript" src="<mt:BlogURL>pollposition.js"></script>
+
+</head>
+
+<body id="<mt:BlogTemplateSetID>">
+
+
+
+<mt:Include module="Header">
+
+
+
+
+
+<div id="container">
+
+
+
+
+
+
+<div id="sidebar">
+
+<mt:Pages tag="@about" lastn="1">
+    <p><strong>Who are <a href="<mt:PagePermalink>">Sherree and Dan</a>?</strong></p>
+</mt:Pages>
+
+    <p><strong>Looking for something?</strong><br />
+    Try a <a href="/search.php">Search</a> or the <a href="/siteindex.php">Site Map</a>.</p>
+
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-0046305191831323";
+google_ad_width = 125;
+google_ad_height = 125;
+google_ad_format = "125x125_as";
+google_ad_type = "text_image";
+//2007-10-06: 125x125 ATF Sidebar, Main Index
+google_ad_channel = "4239325986+4868501962";
+google_color_border = "A64D4A";
+google_color_bg = "8B6439";
+google_color_link = "F2ECDC";
+google_color_text = "F2ECDC";
+google_color_url = "F2ECDC";
+google_ui_features = "rc:10";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+
+
+
+<div id="content">
+
+<div class="adlinks">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0046305191831323";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+//2007-10-06: Main Index, Top Link Unit
+google_ad_channel = "4868501962+3200686530";
+google_color_border = "F2ECDC";
+google_color_bg = "F2ECDC";
+google_color_link = "7C4741";
+google_color_text = "342A1F";
+google_color_url = "7C4741";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<mt:Entries lastn="3">
+    <MTInclude module="Main Index - Only One">
+</mt:Entries>
+
+<div class="individualarchive-ad">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0046305191831323";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text_image";
+//2007-10-06: Main Index, 468x60 ATF
+google_ad_channel = "4868501962+4796865366";
+google_color_border = "F2ECDC";
+google_color_bg = "F2ECDC";
+google_color_link = "7C4741";
+google_color_text = "342A1F";
+google_color_url = "7C4741";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<mt:Entries lastn="7" offset="3">
+    <mt:If name="__first__">
+    <h2>Older Recent Entries</h2>
+    <ul>
+    </mt:If>
+        <li>
+            <a href="<mt:EntryPermalink>" title="Written on <mt:EntryDate format="%B %e, %Y at %l:%M %p"> EST"><mt:EntryTitle smarty_pants="1" widont="1"></a>
+        </li>
+    <mt:If name="__last__">
+    </ul>
+    </mt:If>
+</mt:Entries>
+
+
+<mt:Ignore> close the "content" div container </mt:Ignore>
+</div>
+
+
+<div id="right-sidebar">
+
+<mt:Entries lastn="10">
+    <mt:If name="__first__">
+        <p style="margin-bottom:0"><strong>Recent Entries</strong></p>
+        <ul>
+    </mt:if>
+            <li><a href="<MTEntryPermalink>" title="Written on <MTEntryDate format="%B %e, %Y at %l:%M %p"> EST"><MTEntryTitle smarty_pants="1"></a></li>
+    <mt:If name="__last__">
+        </ul>
+    </mt:If>
+</mt:Entries>
+
+</div>
+
+</div>
+
+
+
+<mt:Include module="Footer">

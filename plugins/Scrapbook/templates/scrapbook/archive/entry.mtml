@@ -1,0 +1,183 @@
+<?php include $_SERVER['DOCUMENT_ROOT'].'/template.php'; ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta property="fb:app_id" content="35113519158" />
+    <title><MTEntryTitle remove_html="1">, in the <MTEntryCategories glue=", "><MTParentCategories glue=" &#62; "><mt:CategoryLabel remove_html="1"></MTParentCategories></MTEntryCategories> &#62; category, on <mt:BlogName></title>
+    <link rel="stylesheet" href="<MT:StaticWebPath>plugins/ActionStreams/css/action-streams.css" type="text/css" />
+    <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
+
+    <script type="text/javascript" src="<mt:Link template="javascript">"></script>
+    <script type="text/javascript" src="/jquery/jquery-1.2.6.min.js"></script>
+    <script type="text/javascript" src="/jquery/jquery.form.js"></script>
+    <script type="text/javascript" src="/jquery/jquery_lightbox/js/jquery.lightbox.packed.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $.Lightbox.construct({
+            show_info:      true,
+            show_extended_info: true,
+            show_linkback:  false,
+        });
+    });
+    </script>
+    
+    <mt:IfCommentsActive>
+        <mt:Include module="Xomment Head" />
+        <mt:SetVar name="panel_size" value="50"/>
+        <mt:SetVar name="panel_static_list" value="-1--3,1"/>
+    </mt:IfCommentsActive>
+    
+    <script type="text/javascript" src="<mt:BlogURL>pollposition.js"></script>
+
+<script type="text/javascript" src="<mt::StaticWebPath>plugins/FacebookCommenters/fbconnect.js"></script>
+<script type="text/javascript" src="<mt::StaticWebPath>plugins/FacebookCommenters/signface.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+    /* BEGIN Facebook Connect Info */
+    var fb = {
+      api_key: '<mt::FacebookApplicationID>',
+      xd_receiver_url: '<mt::StaticWebPath>plugins/FacebookCommenters/xd_receiver.html'
+    };
+    var story = {
+      title: '<mt::EntryTitle encode_js="1">',
+      url: '<mt::EntryPermalink>',
+      excerpt: '<mt::EntryExcerpt encode_js="1">',
+      xid: 'entry-<mt::EntryID>',
+      blog_name: '<mt::BlogName encode_js="1">',
+      blog_url: '<mt::BlogURL encode_js="1">'
+    };
+    var image;
+    function facebook_send_comment(comment) {
+      send_comment(fb, story, image, comment);
+    }
+    $(document).ready( function () {
+      if ( window.location.hash && window.location.hash.match( /^#_logout/ ) ) {
+        facebook_logout(fb);
+        return;
+      }
+      apply_commenter_data(fb);
+    });
+    /* END Facebook Connect Info */
+/* ]]> */
+</script>
+
+
+</head>
+
+<body id="<mt:BlogTemplateSetID>">
+
+
+
+<mt:Include module="Header">
+
+
+
+
+
+<div id="container">
+
+
+
+
+
+
+<div id="sidebar">
+
+    <div id="path">
+        <span><a href="<mt:BlogURL>">Home</a>
+            <span><?php
+                $theglue = '<span>';
+                echo '<MTEntryCategories glue="' . $theglue . '"><MTParentCategories glue="' . $theglue . '"><a href="/categories/<MTParentCategories glue="/"><MTCategoryLabel dirify="1" trim_to="25"></MTParentCategories>/"><MTCategoryLabel smarty_pants="1"></a></MTParentCategories></MTEntryCategories>' . $theglue . '<MTEntryTitle smarty_pants="1" encode_php="q">'; ?></span>
+                </span>
+            </span>
+        </span>
+    </div>
+
+    <div class="byline">
+        This entry was published by <a href="<mt:EntryLink archive_type="Author">"><MTEntryAuthorUsername></a> on <mt:EntryDate format="%B %e, %Y at %l:%M %p"> <acronym title="UTC -5 hours, Eastern Time">EST</acronym>
+    </div>
+
+    
+
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-0046305191831323";
+    google_ad_width = 125;
+    google_ad_height = 125;
+    google_ad_format = "125x125_as";
+    google_ad_type = "text_image";
+    //2007-10-06: 125x125 ATF Sidebar, Individual Entry
+    google_ad_channel = "4239325986+1150505122";
+    google_color_border = "A64D4A";
+    google_color_bg = "8B6439";
+    google_color_link = "F2ECDC";
+    google_color_text = "F2ECDC";
+    google_color_url = "F2ECDC";
+    google_ui_features = "rc:10";
+    //-->
+    </script>
+    <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+
+</div>
+
+
+
+<div id="content">
+
+    <div class="adlinks">
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-0046305191831323";
+    google_ad_width = 468;
+    google_ad_height = 15;
+    google_ad_format = "468x15_0ads_al";
+    //2007-09-10: Top Link Unit
+    google_ad_channel = "3200686530";
+
+    <?php adsense_colors(); ?>
+
+    //--></script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+    </div>
+
+    <mt:Include module="Entry Detail">
+
+    <mt:Include module="Comments">
+
+</div><mt:Ignore> close the "content" div container </mt:Ignore>
+
+
+
+<div id="right-sidebar">
+    <MTEntryPrevious>
+        <p id="previous"><span>Older:</span> <a title="Entry made on <MTEntryDate format="%B %e, %Y at %I:%M %p">" href="<MTEntryPermalink>"><MTEntryTitle smarty_pants="1"></a></p>
+    </MTEntryPrevious>
+
+    <MTEntryNext>
+        <p id="next"><span>Newer:</span> <a title="Entry made on <MTEntryDate format="%B %e, %Y at %I:%M %p">" href="<MTEntryPermalink>"><MTEntryTitle smarty_pants="1"></a></p>
+    </MTEntryNext>
+
+    <mt:EntryIfTagged>
+        <p><strong>Find similar content with tags:</strong>
+            <mt:EntryTags glue=", "><a href="javascript:void(0)" onclick="location.href='<mt:TagSearchLink encode_js="1">';return false;" rel="tag"><mt:TagName></a></mt:EntryTags>
+        </p>
+
+        <mt:setvarblock name="curentry"><mt:EntryID></mt:setvarblock><mt:setvarblock name="relatedtags"><mt:EntryTags glue=" OR "><mt:TagName></mt:EntryTags></mt:setvarblock><mt:setvarblock name="listitems"><mt:Entries tags="$relatedtags" lastn="6"><mt:setvarblock name="listentry"><mt:entryid></mt:setvarblock><mt:unless name="listentry" eq="$curentry"><li><a href="<mt:entrypermalink>"><mt:entrytitle></a></li></mt:unless></mt:entries></mt:setvarblock><mt:if name="listitems"><p style="margin-bottom:0"><strong>Related Entries</strong></p><ul style="margin-top:0"><mt:var name="listitems"></ul></mt:if>
+
+    </mt:EntryIfTagged>
+
+</div>
+
+
+
+
+</div>
+
+
+
+<mt:Include module="Footer">

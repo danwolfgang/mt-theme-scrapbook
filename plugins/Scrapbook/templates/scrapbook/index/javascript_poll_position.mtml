@@ -1,0 +1,93 @@
+function checkVote(id) {
+    var type  = $('#type_' + id).val();
+    var voted = mtGetCookie( type + '_id' );
+    if (!voted) {
+        return;
+    }
+    var voted_array = voted.split(',');
+    for (var poll in voted_array) {
+        if (voted_array[poll] == id) {
+            var $vform = $('#' + type + '-form-' + id);
+            $vform.hide();
+            if (!$('#' + type + '-results-' + id).html()) {
+                $vform.get(0).results_only.value = '1';
+                submitVote(id);
+            }
+        }
+    }
+}
+
+function viewResults(id) {
+    var type  = $('#type_' + id).val();
+    var $vform = $('#' + type + '-form-' + id);
+    $vform.get(0).results_only.value = '1';
+    submitVote(id);
+    $vform.show();
+}
+
+function submitVote(id) {
+    var type  = $('#type_' + id).val();
+    var handleSuccess = function(responseText, status) {
+        var $div = $('#' + type + '-results-' + id);
+        if(responseText !== undefined){
+            if ( responseText.match('unpublished') ) {
+                $div.html('<p class="unpublished">' + responseText + '</p>');
+            }
+            else if ( responseText.match('currently closed') ) {
+                $div.html('<p class="currently-closed">' + responseText + '</p>');
+            }
+            else if ( responseText.match('not a valid option') ) {
+                $('#' + type + '-form-' + id ).show();
+                $div.html('<p class="error">' + responseText + '</p>');
+            }
+            else { // Successful vote
+                $div.html('');
+                $div.html(responseText);
+                var $vform = $('#' + type + '-form-' + id);
+                if ($vform.get(0).results_only.value=='0') {
+                    var now = new Date();
+                    mtFixDate(now);
+                    now.setTime(now.getTime()+999*24*60*60*1000);
+                    mtSetCookie(type +'_id',id,now);
+                }
+                $vform.get(0).results_only.value = '0';
+            }
+        }
+    };
+
+    var handleFailure = function(req,statusText,status) {
+        $('#' + type + '-form-' + id).show();
+        var $div = $('#' + type + '-results-' + id);
+
+        if (responseText !== undefined) {
+            div.html( "<p><strong>Error</strong><br />"
+                    //+ "Transaction id: " + o.tId + "<br />"
+                    + "HTTP status: " + status + "</br />"
+                    + "Status code message: " + statusText + "</p>"
+                    );
+        }
+    };
+
+    var $vform = $('#' + type + '-form-' + id);
+    // Check that visitor has selected an option before submitting
+    for (var i = 0; i < $vform.get(0).poll_choice.length; i++) {
+        if ($vform.get(0).poll_choice[i].checked) {
+            var selected = 1;
+        }
+    }
+    if ( selected || ($vform.get(0).results_only.value == '1') ) {
+        $vform.ajaxSubmit({
+            success: handleSuccess,
+            error: handleFailure,
+            url: "<mt:CGIRelativeURL>plugins/PollPosition/vote.cgi"
+            });
+        $('#'+type + '-results-' + id).html('<img src="<mt:StaticWebPath>images/indicator.gif" width="66" height="66" />');
+        $vform.hide();
+        return false;
+    }
+    else {
+        alert('Please make a selection before submitting to this ' + type);
+        return false;
+    }
+}
+

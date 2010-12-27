@@ -1,0 +1,92 @@
+<?php include($_SERVER['DOCUMENT_ROOT'].'/template.php'); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <title><mt:ArchiveTitle> Archives, on <mt:BlogName></title>
+    <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/Danandsherreecom" />
+</head>
+
+<body id="<mt:BlogTemplateSetID>">
+
+
+
+<mt:Include module="Header">
+
+
+
+
+
+<div id="container">
+
+
+
+
+
+
+<div id="sidebar">
+
+    <div id="path"><span><a href="<mt:BlogURL>">Home</a> <mt:IfArchiveType archive_type="Author-Yearly"><span><a href="<mt:ArchiveLink archive_type="Author">"><mt:AuthorDisplayName>&rsquo;s Author Archives</a></span></mt:IfArchiveType></span></div>
+
+</div>
+
+
+
+<div id="content">
+
+
+    <h1><mt:IfArchiveType archive_type="Author OR Author-Yearly">
+            Content written by <mt:ArchiveTitle widont="1">
+        </mt:IfArchiveType>
+        <mt:Else>
+            <mt:ArchiveTitle> Archives
+        </mt:Else>
+        </mt:IfArchiveType></h1>
+
+
+    <mt:IfArchiveType archive_type="Author">
+        <div class="author-recent" style="width: 300px; float: right; margin: 0 0 10px 20px;">
+            <h2 style="margin-top: 0;">Most Recent Entries</h2>
+            <ul>
+            <MTEntries lastn="10">
+                <li><a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1" widont="1"></a></li>
+            </MTEntries>
+           </ul>
+        </div>
+
+        <p>Author archives are broken up by year.</p>
+
+        <ul>
+        <mt:ArchiveList archive_type="Author-Yearly">
+            <li><a href="<mt:ArchiveLink>"><mt:ArchiveTitle></a></li>
+        </mt:ArchiveList>
+        </ul>
+    </mt:IfArchiveType>
+
+    <mt:IfArchiveType archive_type="Author-Yearly">
+        <p>Contains <MTArchiveCount> entries.</p>
+
+        <ul>
+        <mt:Entries>
+            <li><mt:Include module="Entry Summary"></li>
+        </mt:Entries>
+        </ul>
+    </mt:IfArchiveType>
+
+
+
+
+</div>
+
+
+<mt:Ignore> close the "content" div container </mt:Ignore>
+</div>
+
+</div>
+
+
+
+<mt:Include module="Footer">

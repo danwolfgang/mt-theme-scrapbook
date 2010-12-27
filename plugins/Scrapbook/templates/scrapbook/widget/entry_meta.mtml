@@ -1,0 +1,15 @@
+<mt:If name="entry_archive">
+    <div id="path">
+        <span><a href="<mt:BlogURL>">Home</a>
+            <span><?php
+                $theglue = '<span>';
+                echo '<mt:EntryCategories glue="' . $theglue . '"><mt:ParentCategories glue="' . $theglue . '"><a href="/categories/<mt:ParentCategories glue="/"><mt:CategoryLabel dirify="1" trim_to="25"></mt:ParentCategories>/"><mt:CategoryLabel smarty_pants="1"></a></mt:ParentCategories></mt:EntryCategories>' . $theglue . '<mt:EntryTitle smarty_pants="1" encode_php="q">'; ?></span>
+                </span>
+            </span>
+        </span>
+    </div>
+
+    <div class="byline">
+        This entry was published by <a href="<mt:EntryLink archive_type="Author">"><mt:EntryAuthorUsername></a> on <mt:EntryDate format="%B %e, %Y at %l:%M %p"> <acronym title="UTC -5 hours, Eastern Time">EST</acronym>
+    </div>
+</mt:If>

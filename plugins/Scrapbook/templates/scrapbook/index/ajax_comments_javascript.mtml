@@ -1,0 +1,55 @@
+var Action;
+
+function postComment(){
+
+var handleSuccess = function(o){
+        var div = document.getElementById('ajax-comment');
+	if(o.responseText !== undefined){
+		div.innerHTML = o.responseText;
+	}
+        var is_error = o.responseText.indexOf('Comment Submission Error');
+        if (o.argument.Action == 'preview' || is_error > 0) {
+          showDocumentElement('comments-form');
+        }
+};
+
+var handleFailure = function(o){
+  var div = document.getElementById('ajax-comment');
+	if(o.responseText !== undefined){
+		div.innerHTML =  "<p><strong>Error</strong></p>";
+		div.innerHTML += "<li>Transaction id: " + o.tId + "</li>";
+		div.innerHTML += "<li>HTTP status: " + o.status + "</li>";
+		div.innerHTML += "<li>Status code message: " + o.statusText + "</li>";
+	}
+};
+
+var callback =
+{
+  success:handleSuccess,
+  failure:handleFailure,
+  argument: {
+    "Action": Action
+  }
+};
+
+var sUrl = "<MTCGIRelativeURL>" + "<MTCommentScript>";
+
+  var formObject = document.getElementById('comments-form');
+  YAHOO.util.Connect.setForm(formObject);
+  var request = YAHOO.util.Connect.asyncRequest('POST', sUrl, callback);
+  var AjaxComment = document.getElementById('ajax-comment');
+  AjaxComment.innerHTML = '<img src="<mt:StaticWebPath>images/indicator.gif" />';
+  hideDocumentElement('comments-form');
+  return false;
+}
+
+function hideDocumentElement(id) {
+    var el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+}
+
+function showDocumentElement(id) {
+    var el = document.getElementById(id);
+    if (el) el.style.display = 'block';
+}
+

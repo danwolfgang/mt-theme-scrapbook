@@ -1,0 +1,814 @@
+.hidden {
+    display: none;
+}
+
+body {
+    behavior: url(<mt:PluginStaticWebPath component="scrapbook">css/hover.htc); /* WinIE behavior call */
+    background: #f9f4e6 url(<mt:PluginStaticWebPath component="scrapbook">images/bg.jpg);
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, serif;
+}
+
+.individualarchive-ad {
+    z-index: 11;
+    display : block;
+    font-size: 1em;
+    text-align : center;
+    margin : 15px 0 -30px -30px;
+    padding : 0;
+}
+
+.individualarchive-ad-top {
+    float: right;
+    margin : -10px -15px 10px 10px;
+    padding : 0;
+    height: 250px;
+    width: 300px;
+}
+
+.adlinks {
+    text-align : center;
+    margin : 8px auto -8px;
+    padding : 0;
+}
+
+
+.sidebar-ad {
+    display : block;
+    text-align : center;
+    margin : 10px auto 10px auto;
+    padding : 0;
+}
+
+.rate {
+    border: 2px solid #8b6439;
+    text-align: center;
+    margin: 0 100px;
+    padding: 5px;
+    line-height: 1em;
+}
+
+.rate p {
+    line-height: 1em;
+}
+
+
+
+
+/* Style the Header */
+
+#header {
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/header-footer.gif) 0 -5px repeat-x;
+    height: 145px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#header-inner {
+    width: 950px;
+    position: relative;
+    margin: 0 auto;
+    height: 145px;
+}
+
+#header h2 {
+    margin: 0;
+    padding: 0;
+}
+
+#title {
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/danandsherree.com.gif) no-repeat;
+    width: 750px;
+    height: 102px;
+    margin: -7px auto 0 auto;
+    position: relative;
+    z-index: 200;
+}
+
+#title a {
+    display: block;
+    width: 750px;
+    height: 100px;
+    overflow: hidden;
+    text-indent: -5000px;
+}
+
+#photo {
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/photo.gif) no-repeat;
+    position: absolute;
+    top: 60px;
+    left: 5px;
+    width: 160px;
+    height: 165px;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+}
+
+
+
+/* Menu */
+
+#menu {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 115px;
+    right: 0;
+    font-family: sans-serif;
+    z-index: 1000;
+}
+
+#menu .journal {
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/journal.gif) no-repeat;
+    height: 35px;
+    width: 118px;
+    padding: 0;
+    margin: 5px 10px 0 0;
+    cursor: pointer;
+    text-indent: -5000px;
+    overflow: hidden;
+}
+
+#menu .about {
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/about_us.gif) no-repeat;
+    height: 35px;
+    width: 141px;
+    padding: 0;
+    margin: 5px 0 0 0;
+    cursor: pointer;
+    text-indent: -5000px;
+    overflow: hidden;
+}
+
+#menu .search_bar {
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/search_bar.jpg) no-repeat;
+    height: 35px;
+    width: 263px;
+    padding: 5px 7px 0 10px;
+    margin: 5px 0 0 10px;
+    position: relative;
+}
+
+#menu .search_bar #search {
+    margin: 4px 0 0 0;
+    padding: 0;
+    width: 150px;
+    border: 0;
+    font-size: 16px;
+    background: #eee;
+}
+
+#menu .search_bar #search_button {
+    padding: 0;
+    position: absolute;
+    top: 5px;
+    right: 7px;
+}
+
+
+
+
+#menu ul.level1 {
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul.level1 li.submenu {
+    padding: 0;
+    margin: 0;
+}
+
+#menu li:hover,
+#menu li a:hover,
+#menu ul.level1 li,
+#menu ul.level1 li a,
+#menu li.submenu:hover,
+#menu li.submenu a:hover {
+}
+
+#menu ul.level2 li:hover,
+#menu ul.level2 li a:hover {
+    color: #582c17;
+    background: #fff;
+}
+
+#menu li {
+    position: relative;
+    list-style: none;
+    float: left;
+}
+
+#menu li a {
+    padding: 0 6px;
+    display: block;
+    text-decoration: none;
+}
+
+#menu ul ul {
+    position: absolute;
+    width: 14em;
+    display: none;
+}
+
+#menu ul.level2 li {
+    padding: 0;
+    margin: -2px 0 0 0;
+    font-size: 0.9em;
+    border: 1px solid #582c17;
+}
+
+#menu ul.level2 li a {
+    width: 14em;
+}
+
+#menu li.submenu li.submenu:hover {
+    background: #f9f9f9;
+}
+
+#menu ul.level1 li.submenu:hover ul.level2 {
+    display: none;
+    z-index: 2000;
+}
+
+#menu ul.level2 {
+    left: 0px;
+    top: 1.5em;
+}
+
+#menu ul.level2 li,
+#menu ul.level2 li a {
+    color: #000;
+    background: #f9f9f9;
+}
+
+
+
+
+
+
+
+
+
+/*Style the main content container */
+
+#container {
+    position: relative;
+    top: -4px;
+    width: 973px;
+    margin: 143px auto 0 auto;
+    padding: 0;
+}
+
+#content {
+    padding: 10px 25px 70px 35px;
+    margin: 0 0 -9px 182px;
+    width: 525px;
+    min-height: 400px;
+    color: #342a1f;
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/content.gif) 0 25px repeat-y;
+}
+
+
+
+
+
+
+
+/* Style the Sidebar */
+
+#sidebar {
+    overflow: hidden;
+    float: left;
+    margin: 100px 0 0 0;
+    padding: 0;
+    width : 170px;
+    font-family: Tahoma,sans-serif;
+    font-size: 0.9em;
+    color: white;
+}
+
+#sidebar div {
+    margin : 25px 0;
+}
+
+#sidebar #path span {
+    display : block;
+    text-transform: capitalize;
+    padding : 0 0 0 15px;
+    font-weight : bold;
+    background : url(<mt:PluginStaticWebPath component="scrapbook">images/arrow.gif) no-repeat 0px 5px;
+}
+
+#sidebar .byline {
+    margin: 0 0 1.4em 0;
+    padding: 0;
+}
+.byline img {
+    border: 0;
+}
+
+
+#right-sidebar {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 180px;
+    font-family: Tahoma,sans-serif;
+    font-size: 0.9em;
+    color: white;
+}
+
+#right-sidebar #previous,
+#right-sidebar #next {
+    text-transform: capitalize;
+}
+
+#right-sidebar #previous span,
+#right-sidebar #next span {
+    font-weight : bold;
+}
+
+#right-sidebar .unit-rating {
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+/* Style the Footer */
+
+#footer {
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/header-footer.gif) repeat-x;
+    z-index: 10;
+    padding: 30px 0 40px 100px;
+    margin: 0;
+    position: relative;
+    bottom: 0;
+    height: 74px;
+    color: #5a391a;
+}
+
+#footer p {
+    letter-spacing: -0.01em;
+    line-height: 1.1em;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
+/* Style the front page */
+
+.entry {
+    margin: 0;
+}
+
+.divider1 {
+    padding: 0;
+    margin: 30px auto;
+    width: 350px;
+    height: 29px;
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/divider1.gif) no-repeat;
+}
+
+.divider2 {
+    padding: 0;
+    margin: 30px auto;
+    width: 350px;
+    height: 29px;
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/divider2.gif) no-repeat;
+}
+
+#poweredby {
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/mt.gif) no-repeat white;
+    text-indent: -5000px;
+    margin: 100px 0 0 0;
+    height: 32px;
+    width: 137px;
+    border: 1px solid #342a1f;
+}
+
+
+
+
+
+
+
+
+
+
+/* Style assorted tags */
+
+
+acronym {
+    cursor: help;
+}
+
+ol, ul, p {
+    letter-spacing: -0.01em;
+    line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0.5em 0;
+    padding: 0;
+    text-transform: capitalize;
+    letter-spacing: -0.03em;
+    color: #8b6439;
+}
+
+h1 {
+    margin-top: 1.5em;
+    margin-bottom: 0;
+}
+
+h2, h3, h4, h5, h6 {
+    margin-top: 2em;
+}
+
+a {
+    color: #f9f4e6;
+}
+
+a:hover {
+    color: #fff;
+}
+
+#content a {
+    color: #7c4741;
+}
+
+#content a:hover {
+    color: #9f4543;
+}
+
+code {
+    font-family: "lucida grande", courier, monotype;
+    letter-spacing: -0.05em;
+    font-size: 0.9em;
+}
+
+blockquote {
+    margin: 15px 0 15px 15px;
+    padding: 0 3px;
+    letter-spacing: -0.01em;
+    line-height: 1.5em;
+    border-top: 5px solid #ca9946;
+    border-bottom: 5px solid #ca9946;
+}
+
+ul {
+    list-style-type: disc;
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+ol {
+    margin: 0 0 0 0.5em;
+    padding: 0;
+}
+
+li {
+    margin: 0 0 0 1em;
+}
+
+
+
+
+
+
+
+
+.trackbackurl {
+    font-size: 0.8em;
+    padding: 2px 8px;
+    background: #ecc076;
+}
+
+.feedback {
+    margin: 0 0 1em 0;
+    border-bottom: 1px dotted #9a8745;
+}
+
+.feedback .byline {
+    text-align: right;
+    color: #9a8745;
+    margin: 0 0 0.8em 0;
+    padding: 0;
+}
+
+#lead-in {
+    font-size: 1.2em;
+    margin-bottom: 45px;
+}
+
+
+
+
+
+
+
+/* These are the image-positioning styles. */
+
+.right {
+    margin : 0px 0px 15px 15px;
+    padding : 0;
+    float : right;
+    clear : right;
+    width : 170px;
+}
+
+.thumbnail1 {
+    margin : 0;
+    padding : 0;
+    display : table-cell;
+    background : url(<mt:PluginStaticWebPath component="scrapbook">images/thumbnail1.jpg) no-repeat;
+    text-align : center;
+    font-size: 145px;
+    vertical-align : middle;
+    width : 170px;
+    height : 166px;
+}
+
+.thumbnail2 {
+    margin : 0;
+    padding : 0;
+    display : table-cell;
+    background : url(<mt:PluginStaticWebPath component="scrapbook">images/thumbnail2.jpg) no-repeat;
+    text-align : center;
+    font-size: 145px;
+    vertical-align : middle;
+    width : 170px;
+    height : 166px;
+}
+
+.thumbnail3 {
+    margin : 0;
+    padding : 0;
+    display : table-cell;
+    background : url(<mt:PluginStaticWebPath component="scrapbook">images/thumbnail3.jpg) no-repeat;
+    text-align : center;
+    font-size: 145px;
+    vertical-align : middle;
+    width : 170px;
+    height : 166px;
+}
+
+.thumbnail1 img,
+.thumbnail2 img,
+.thumbnail3 img {
+    vertical-align : middle;
+}
+
+.gallerycontainer1 {
+    text-align : center;
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/gallerycontainer1.jpg) repeat #d3a556;
+    border : 1px solid #342a1f;
+    margin : 20px 0;
+    padding : 15px 15px 15px 15px;
+}
+
+.gallerycontainer2 {
+    text-align : center;
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/gallerycontainer2.jpg) repeat #d3a556;
+    border : 1px solid #342a1f;
+    margin : 20px 0;
+    padding : 15px 15px 15px 15px;
+}
+
+.gallerycontainer3 {
+    text-align : center;
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/gallerycontainer3.jpg) repeat #d3a556;
+    border : 1px solid #342a1f;
+    margin : 20px 0;
+    padding : 15px 15px 15px 15px;
+}
+
+iframe + div >.gallerycontainer1,
+iframe + div >.gallerycontainer2,
+iframe + div >.gallerycontainer3 {
+    margin-top: 0;
+}
+
+.gallerycontainer1 .align,
+.gallerycontainer2 .align,
+.gallerycontainer3 .align {
+    text-align : center;
+    margin : 5px;
+    padding : 0;
+    width : 140px;
+}
+
+.gallerycontainer1 .align .gallerythumbnail img,
+.gallerycontainer2 .align .gallerythumbnail img,
+.gallerycontainer3 .align .gallerythumbnail img {
+    vertical-align : middle;
+}
+
+#gallerynav {
+    margin : 35px auto 15px auto;
+    padding : 0;
+    list-style-position : outside;
+    list-style-type : none;
+    text-align: center;
+}
+
+#gallerynav li {
+    display : inline;
+    padding : 0 8px 0 8px;
+}
+
+
+#individualphoto {/* For the individual photo in a photo gallery */
+    clear: both;
+    text-align : center;
+    margin : 0 auto 25px auto;
+    padding : 0;
+}
+
+#individualphoto img {
+    border : 10px solid #f9f4e6;
+}
+
+
+h1#gallery {
+    background: url(<mt:PluginStaticWebPath component="scrapbook">images/gallerytop.gif) repeat-x;
+    z-index: 1000;
+    margin: -47px -25px 0 -35px;
+    padding: 20px 25px 0 35px;
+}
+
+#photopath {
+    display: none;
+}
+
+
+
+
+
+
+/* From the old stylesheet--to be revised (some day!) */
+
+.scrapbookpages {
+    background : #f9f4e6;
+    margin : 10px auto 10px auto;
+    padding : 5px;
+    width : 300px;
+    min-height : 130px;
+    clear : both;
+}
+
+.scrapbookpages .right {
+    float: right;
+    margin: 0;
+    padding: 5px;
+    width: 128px;
+}
+
+.scrapbookpages .left {
+    float: left;
+    margin: 0;
+    padding: 5px;
+    width: 128px;
+}
+
+.scrapbookpages .description,
+.centerthumbnail .description {
+    clear: both;
+    margin: 8px;
+    padding: 0px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #342a1f;
+}
+
+.traveloguethumbnail {
+    float : left;
+    width : 135px;
+    margin : 0px 15px 15px 0px;
+    text-align : center;
+    height : auto;
+    font-family : sans-serif;
+    color : #342a1f;
+}
+
+.caption {
+    margin : 0 0 20px 0;
+    padding: 0;
+    text-indent : 0px;
+    display: block;
+    font-family: sans-serif;
+    color : #342a1f;
+    text-align : left;
+}
+
+
+
+.tagcloud {
+    list-style: none;
+    text-align: center;
+}
+.tagcloud li {
+    display: inline;
+}
+.tagcloud li.taglevel1 {
+    font-size: 21px;
+}
+.tagcloud li.taglevel2 {
+    font-size: 17px;
+}
+.tagcloud li.taglevel3 {
+    font-size: 13px;
+}
+.tagcloud li.taglevel4 {
+    font-size: 9px;
+}
+.tagcloud li.taglevel5 {
+    font-size: 11px;
+    display: none;
+    visibility: none;
+}
+.tagcloud li.taglevel6 {
+    font-size: 9px;
+    display: none;
+    visibility: none;
+}
+
+
+.service-Amazon {
+    background-image: url(<mt:PluginStaticWebPath component="scrapbook">images/amazon.png);
+}
+
+#comment-text {
+    width: 525px;
+}
+
+#comment-greeting,
+#comment-form-name,
+#comment-form-email,
+#comment-form-url {
+    margin-bottom: 5px;
+}
+
+.comment-footer {
+    text-align: right;
+}
+
+
+@media print {
+    #header {
+        height: auto;
+    }
+    #header-inner {
+        width: auto;
+        height: auto;
+    }
+    #title,
+    #title a {
+        background: none;
+        width: auto;
+        height: auto;
+        margin: 0;
+    }
+    #title a {
+        overflow: auto;
+        text-indent: 0;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    #photo,
+    #menu,
+    #sidebar,
+    #right-sidebar,
+    .adlinks,
+    .individualarchive-ad-top,
+    .individualarchive-ad,
+    #comments-open {
+        display: none;
+    }
+    #content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #footer {
+        padding-left: 0;
+    }
+
+}

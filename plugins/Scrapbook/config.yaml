@@ -1,0 +1,264 @@
+id: 'scrapbook'
+key: 'scrapbook'
+name: 'Scrapbook'
+description: 'The Scrapbook theme was originally created in 2005 for danandsherree.com'
+author_link: 'http://danandsherree.com'
+author_name: 'Dan Wolfgang'
+version: 1.0
+static_version: 1
+
+default_templates:
+  base_path: templates/global
+  global:module:
+    javascript:
+      filename: module/javascript.mtml
+      label: GlobalJavaScript
+
+template_sets:
+    scrapbook:
+        base_path: templates/scrapbook
+        label: Scrapbook
+
+        templates:
+            archive:
+                category_archive:
+                    filename: archive/category_archive.mtml
+                    label: 'Category Archive'
+                    mappings:
+                        category:
+                            archive_type: 'Category'
+                            build_type: 4
+                            file_template: "categories/<mt:ParentCategories glue=\"/\"><mt:CategoryLabel dirify=\"1\" trim_to=\"25\"></mt:ParentCategories>/index.php"
+                            preferred: 1
+                entry:
+                    filename: archive/entry.mtml
+                    label: 'Entry'
+                    mappings:
+                        individual:
+                            archive_type: 'Individual'
+                            file_template: '%y/%m/%d/%f'
+                            build_type: 1
+                            preferred: 1
+                entry_listing:
+                    filename: archive/entry_listing.mtml
+                    label: 'Entry Listing'
+                    mappings:
+                        author:
+                            archive_type: 'Author'
+                            build_type: 4
+                            file_template: '%a/%f'
+                            preferred: 1
+                        author-yearly:
+                            archive_type: 'Author-Yearly'
+                            build_type: 4
+                            file_template: '%a/%y/%f'
+                            preferred: 1
+                dated_archive:
+                    filename: archive/monthly_archive.mtml
+                    label: 'Dated Archives'
+                    mappings:
+                        monthly:
+                            archive_type: 'Monthly'
+                            build_type: 4
+                            file_template: '%y/%m/%i'
+                            preferred: 1
+                        yearly:
+                            archive_type: 'Yearly'
+                            build_type: 4
+                            file_template: '%y/%i'
+                            preferred: 1
+                page:
+                    filename: archive/page.mtml
+                    label: 'Page'
+                    mappings:
+                        page:
+                            archive_type: 'Page'
+                            file_template: '%c/%f'
+                            build_type: 1
+                            preferred: 1
+            index:
+                ajax_comments_javascript:
+                    build_type: 2
+                    filename: index/ajax_comments_javascript.mtml
+                    label: 'Ajax Comments Javascript'
+                    outfile: ajaxcomments.js
+                    rebuild_me: 1
+                dans_action_stream:
+                    build_type: 4
+                    filename: index/dans_action_stream.mtml
+                    label: "Dan's Action Stream"
+                    outfile: dan_wolfgang/action_stream.php
+                    rebuild_me: 1
+                google_sitemap:
+                    build_type: 4
+                    filename: index/google_sitemap.mtml
+                    label: 'Google Sitemap'
+                    outfile: sitemap.xml
+                    rebuild_me: 1
+                htaccess:
+                    build_type: 2
+                    filename: index/htaccess.mtml
+                    label: '.htaccess'
+                    outfile: '.htaccess'
+                    rebuild_me: 1
+                javascript:
+                    build_type: 2
+                    filename: index/javascript.mtml
+                    label: JavaScript
+                    outfile: mt-site.js
+                    rebuild_me: 1
+                javascript_poll_position:
+                    build_type: 2
+                    filename: index/javascript_poll_position.mtml
+                    label: 'Javascript: Poll Position'
+                    outfile: pollposition.js
+                    rebuild_me: 1
+                journal:
+                    build_type: 4
+                    filename: index/journal.mtml
+                    label: Journal
+                    outfile: journal.php
+                    rebuild_me: 1
+                main_index:
+                    filename: index/main_index.mtml
+                    label: 'Main Index'
+                    outfile: index.php
+                    rebuild_me: 1
+                rss_20_excerpts_entry_body:
+                    build_type: 4
+                    filename: index/rss_20_excerpts_entry_body.mtml
+                    label: "RSS 2.0 \"Excerpts\" (Entry Body)"
+                    outfile: feeds/fb-excerpts.xml
+                    rebuild_me: 1
+                rss_20_index_full:
+                    build_type: 4
+                    filename: index/rss_20_index_full.mtml
+                    label: 'RSS 2.0 Index (Full)'
+                    outfile: feeds/fb-index.xml
+                    rebuild_me: 1
+                rss_weekly:
+                    build_type: 4
+                    filename: index/rss_weekly.mtml
+                    label: 'RSS - Weekly'
+                    outfile: weekly.rss
+                    rebuild_me: 1
+                styles:
+                    build_type: 2
+                    filename: index/styles.mtml
+                    label: 'Scrapbook Styles'
+                    outfile: styles.css
+                    rebuild_me: 1
+                site-wide_template_with_php_stuff:
+                    build_type: 2
+                    filename: index/site-wide_template_with_php_stuff.mtml
+                    label: 'Site-Wide Template with PHP Stuff'
+                    outfile: template.php
+                    rebuild_me: 1
+                site_map:
+                    build_type: 4
+                    filename: index/site_map.mtml
+                    label: 'Site Map'
+                    outfile: siteindex.php
+                    rebuild_me: 1
+                xomment_javascript:
+                    build_type: 2
+                    filename: index/xomment_javascript.mtml
+                    label: 'Xomment JavaScript'
+                    outfile: xomment.js
+                    rebuild_me: 1
+            module:
+                comment_detail:
+                    filename: module/comment_detail.mtml
+                    label: 'Comment Detail'
+                comment_form:
+                    filename: module/comment_form.mtml
+                    label: 'Comment Form'
+                comments:
+                    filename: module/comments.mtml
+                    label: Comments
+                entry_detail:
+                    filename: module/entry_detail.mtml
+                    label: 'Entry Detail'
+                entry_summary:
+                    filename: module/entry_summary.mtml
+                    label: 'Entry Summary'
+                footer:
+                    filename: module/footer.mtml
+                    label: 'Footer'
+                    cache:
+                        include_ssi: 1
+                        expire_type: 1
+                        expire_interval: 86400
+                header:
+                    filename: module/header.mtml
+                    label: 'Header'
+                    cache:
+                        include_ssi: 1
+                        expire_type: 1
+                        expire_interval: 86400
+                rss_weekly_timer:
+                    cache:
+                        expire_interval: 36288000
+                        expire_type: 1
+                    filename: module/rss_weekly_timer.mtml
+                    label: 'RSS Weekly Timer'
+                xomment_head:
+                    filename: module/xomment_head.mtml
+                    label: 'Xomment Head'
+                xomment_panel:
+                    filename: module/xomment_panel.mtml
+                    label: 'Xomment Panel'
+                xomment_panels:
+                    filename: module/xomment_panels.mtml
+                    label: 'Xomment Panels'
+                xomment_quote:
+                    filename: module/xomment_quote.mtml
+                    label: 'Xomment Quote'
+            system:
+                comment_preview:
+                    filename: system/comment_preview.mtml
+                    label: 'Comment Preview'
+                comment_response:
+                    filename: system/comment_response.mtml
+                    label: 'Comment Response'
+                dynamic_pages_error_template:
+                    filename: system/dynamic_pages_error_template.mtml
+                    label: 'Dynamic Pages Error Template'
+                search_results:
+                    filename: system/search_results.mtml
+                    label: 'Search Results'
+                uploaded_image_popup_template:
+                    filename: system/uploaded_image_popup_template.mtml
+                    label: 'Uploaded Image Popup Template'
+            widget:
+                entry_meta:
+                    filename: widget/entry_meta.mtml
+                    label: 'Entry Meta'
+                google_adsense_125_x_125:
+                    filename: widget/google_adsense_125_x_125.mtml
+                    label: 'Google AdSense: 125 x 125'
+                previousnext_links:
+                    filename: widget/previousnext_links.mtml
+                    label: 'Previous/Next Links'
+                tags_and_related_content:
+                    filename: widget/tags_and_related_content.mtml
+                    label: 'Tags and Related Content'
+            widgetset:
+                left_column:
+                    label: 'Left Column'
+                    widgets:
+                        - 'Entry Meta'
+                        - 'Google AdSense: 125 x 125'
+                right_column:
+                    label: 'Right Column'
+                    widgets:
+                        - 'Previous/Next Links'
+                        - 'Tags and Related Content'
+        content:
+            pages:
+                error:
+                    label: 'Error'
+                about:
+                    label: 'About'
+                    tags:
+                        - '@about'

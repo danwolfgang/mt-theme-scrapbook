@@ -1,0 +1,16 @@
+<mt:If name="entry_archive">
+    <mt:EntryIfTagged>
+        <p><strong>Find similar content with tags:</strong>
+            <mt:EntryTags glue=", "><a href="javascript:void(0)" onclick="location.href='<mt:TagSearchLink encode_js="1">';return false;" rel="tag"><mt:TagName></a></mt:EntryTags>
+        </p>
+
+        <mt:SetVarBlock name="curentry"><mt:EntryID></mt:SetVarBlock>
+        <mt:SetVarBlock name="relatedtags"><mt:EntryTags glue=" OR "><mt:TagName></mt:EntryTags></mt:SetVarBlock>
+        <mt:SetVarBlock name="listitems"><mt:Entries tags="$relatedtags" lastn="6"><mt:SetVarBlock name="listentry"><mt:EntryID></mt:SetVarBlock><mt:Unless name="listentry" eq="$curentry"><li><a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1"></a></li></mt:Unless></mt:Entries></mt:SetVarBlock>
+
+        <mt:If name="listitems">
+            <p style="margin-bottom:0"><strong>Related Entries</strong></p>
+            <ul style="margin-top:0"><mt:var name="listitems"></ul>
+        </mt:If>
+    </mt:EntryIfTagged>
+</mt:If>

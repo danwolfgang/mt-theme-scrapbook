@@ -1,0 +1,121 @@
+order allow,deny
+deny from 66.249.68.177
+allow from all
+
+Options +FollowSymlinks
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+RewriteRule ^tag/(.*)$ /cgi-bin/mt/mt-search.cgi?blog_id=1&tag=$1&limit=20 [L]
+
+
+# These are the error pages.
+ErrorDocument 400 /error.php
+ErrorDocument 401 /error.php
+ErrorDocument 403 /error.php
+# ErrorDocument 404 /error404.php
+ErrorDocument 404 /cgi-bin/mt/mt.cgi?__mode=404&blog_id=1
+ErrorDocument 500 /error.php
+
+# Redirect attempts to view the daily folder (/2005/01/10/, for example) to the monthly
+# archives (/2005/01/, for example).
+RedirectMatch permanent /([0-9][0-9][0-9][0-9])/([0-9][0-9])/([0-9][0-9])/?$ <mt:BlogURL>$1/$2/
+
+RewriteRule styles/scrapbook/styles.css.php$ <mt:BlogURL>styles/scrapbook/styles.css [L]
+
+# Redirect the RSS feeds.
+Redirect permanent /feeds/excerpts.xml http://feeds.feedburner.com/Danandsherreecom
+Redirect permanent /feeds/index.xml http://feeds.feedburner.com/Danandsherreecom
+Redirect permanent /index.rdf http://feeds.feedburner.com/Danandsherreecom
+Redirect permanent /feeds/headlines.xml http://feeds.feedburner.com/Danandsherreecom
+Redirect permanent /feeds/about_dan_old_stuff.xml http://feeds.feedburner.com/DanandsherreecomAboutDanoldStuff
+Redirect permanent /feeds/boy_scouts.xml http://feeds.feedburner.com/DanandsherreecomBoyScouts
+Redirect permanent /feeds/christmas.xml http://feeds.feedburner.com/DanandsherreecomChristmas
+Redirect permanent /feeds/computers.xml http://feeds.feedburner.com/DanandsherreecomComputers
+Redirect permanent /feeds/crafts.xml http://feeds.feedburner.com/DanandsherreecomCrafts
+Redirect permanent /feeds/danandsherreecom_news.xml http://feeds.feedburner.com/DanandsherreecomDanandsherreecomNews
+Redirect permanent /feeds/elsewhere_in_our_life.xml http://feeds.feedburner.com/DanandsherreecomElsewhereInOurLife
+Redirect permanent /feeds/essential_reading.xml http://feeds.feedburner.com/DanandsherreecomEssentialReading
+Redirect permanent /feeds/genealogy.xml http://feeds.feedburner.com/DanandsherreecomGenealogy
+Redirect permanent /feeds/girl_scouts.xml http://feeds.feedburner.com/DanandsherreecomGirlScouts
+Redirect permanent /feeds/jims_writings.xml http://feeds.feedburner.com/DanandsherreecomJimsWritings
+Redirect permanent /feeds/movable_type.xml http://feeds.feedburner.com/EatDrinkSleepMovableType
+Redirect permanent /feeds/music_movies_and_televis.xml http://feeds.feedburner.com/DanandsherreecomMusicMoviesAndTelevision
+Redirect permanent /feeds/photography.xml http://feeds.feedburner.com/DanandsherreecomPhotography
+Redirect permanent /feeds/pinball_the_cat.xml http://feeds.feedburner.com/DanandsherreecomPinballTheCat
+Redirect permanent /feeds/random_news_bits.xml http://feeds.feedburner.com/DanandsherreecomRandomNewsBits
+Redirect permanent /feeds/rc_cars.xml http://feeds.feedburner.com/DanandsherreecomRcCars
+Redirect permanent /feeds/reviews.xml http://feeds.feedburner.com/DanandsherreecomReviews
+Redirect permanent /feeds/travelogues_and_photos.xml http://feeds.feedburner.com/DanandsherreecomTraveloguesAndPhotos
+Redirect permanent /feeds/workrelated.xml http://feeds.feedburner.com/DanandsherreecomWork-related
+
+# Change from the old way (/year/monthday/) to the new way (/year/month/day/) of archiving.
+RedirectMatch permanent /([0-9][0-9][0-9][0-9])/([0-9][0-9])([0-9][0-9])/(.*)$ http://www.danandsherree.com/$1/$2/$3/$4
+
+# Redirect access from the old /articles/upload/ folder to the new /upload/articles/ folder--since
+# everything goes in the /upload/ folder now.
+RedirectMatch permanent /articles/upload/(.*)$ http://www.danandsherree.com/upload/articles/$1
+
+
+
+
+Redirect permanent /home.gif http://www.danandsherree.com/images/home.gif
+Redirect permanent /dot.gif http://www.danandsherree.com/images/dot.gif
+
+
+# Redirect the Movable Type pages to EDSMT.
+Redirect permanent /2005/10/09/better_file_uploader_4.php http://www.eatdrinksleepmovabletype.com/plugins/better_file_uploader_106/
+Redirect permanent /2005/10/06/photo_gallery_templates.php http://www.eatdrinksleepmovabletype.com/tutorials/basic_photo_gallery_templates/
+Redirect permanent /2005/10/04/better_file_uploader_3.php http://www.eatdrinksleepmovabletype.com/plugins/better_file_uploader_105/
+Redirect permanent /2005/09/27/monitoring_site_statistics.php http://www.eatdrinksleepmovabletype.com/tutorials/monitoring_site_statistics/
+Redirect permanent /2005/09/25/how_long_does_it_take.php http://www.eatdrinksleepmovabletype.com/discussions/how_long_does_it_take_you_to_write_an_entry/
+Redirect permanent /2005/09/24/better_entry_preview_1.php http://www.eatdrinksleepmovabletype.com/plugins/better_entry_preview_101/
+Redirect permanent /2005/09/20/useful_easy_to_read_titles.php http://www.eatdrinksleepmovabletype.com/tutorials/useful_easy_to_read_titles/
+Redirect permanent /2005/09/16/better_file_uploader_2.php http://www.eatdrinksleepmovabletype.com/plugins/better_file_uploader_104/
+Redirect permanent /2005/09/15/better_file_uploader_1.php http://www.eatdrinksleepmovabletype.com/plugins/better_file_uploader_103/
+Redirect permanent /2005/09/13/better_file_uploader.php http://www.eatdrinksleepmovabletype.com/plugins/plugin_better_file_uploader/
+Redirect permanent /2005/09/13/comment_author_redirect.php http://www.eatdrinksleepmovabletype.com/tutorials/comment_authors_dont_deserve_to_be_redirected/
+Redirect permanent /2005/09/07/star_icons_for_rateit.php http://www.eatdrinksleepmovabletype.com/tutorials/star_icons_for_rateit_plugin/
+Redirect permanent /2005/09/01/better_entry_preview.php http://www.eatdrinksleepmovabletype.com/plugins/plugin_better_entry_preview/
+Redirect permanent /2005/08/29/plugin_or_alternate.php http://www.eatdrinksleepmovabletype.com/discussions/plugin_or_alternate_template/
+Redirect permanent /2005/08/29/updated_alternate_te.php http://www.eatdrinksleepmovabletype.com/tutorials/updated_alternate_template_collection/
+Redirect permanent /2005/08/27/plugin_ideas.php http://www.eatdrinksleepmovabletype.com/discussions/i_want_to_write_a_plugin_or_two_or_three/
+Redirect permanent /2005/08/26/movable_type_32.php http://www.eatdrinksleepmovabletype.com/discussions/running_movable_type_32/
+Redirect permanent /2005/08/25/shortstat_to_slimstat.php http://www.eatdrinksleepmovabletype.com/discussions/goodbye_shortstat_hello_slimstat/
+Redirect permanent /2005/08/13/upgrade_to_32_beta_.php http://www.eatdrinksleepmovabletype.com/discussions/upgrade_to_32_beta_4/
+Redirect permanent /2005/08/06/hacking_shortstat.php http://www.eatdrinksleepmovabletype.com/tutorials/hacking_shortstat/
+Redirect permanent /2005/07/27/becoming_a_better_wr.php http://www.eatdrinksleepmovabletype.com/discussions/becoming_a_better_writer/
+Redirect permanent /2005/07/25/specifying_a_default.php http://www.eatdrinksleepmovabletype.com/tutorials/specifying_a_default_primary_category/
+Redirect permanent /2005/07/22/updated_edit_e.php http://www.eatdrinksleepmovabletype.com/tutorials/updated_edit_entrytmpl_template/
+Redirect permanent /2005/06/23/cookie_publishing_w.php http://www.eatdrinksleepmovabletype.com/tutorials/cookie_publishing_whats_new_since_your_last_visit/
+Redirect permanent /2005/05/30/alternate_template_c.php http://www.eatdrinksleepmovabletype.com/tutorials/alternate_template_collection/
+Redirect permanent /2005/05/17/dynamic_site_design.php http://www.eatdrinksleepmovabletype.com/tutorials/dynamic_site_design_displaying_thumbnails_with_a_random_background/
+Redirect permanent /2005/05/16/displaying_a_no_com.php http://www.eatdrinksleepmovabletype.com/tutorials/displaying_a_no_commenttrackback_received_yet_message/
+Redirect permanent /2005/05/13/typography_readabil.php http://www.eatdrinksleepmovabletype.com/discussions/typography_readability_and_the_web/
+Redirect permanent /2005/05/10/a_better_upload_file.php http://www.eatdrinksleepmovabletype.com/tutorials/a_better_upload_file_template/
+Redirect permanent /2005/05/01/fixing_popup_file_u.php http://www.eatdrinksleepmovabletype.com/tutorials/fixing_popup_file_uploads_in_316/
+Redirect permanent /2005/04/27/dont_forget_.php http://www.eatdrinksleepmovabletype.com/discussions/dont_forget_mtentryexcerpt/
+Redirect permanent /2005/04/20/email_notifications.php http://www.eatdrinksleepmovabletype.com/tutorials/email_notifications_and_the_user_experience/
+Redirect permanent /2005/04/19/a_faster_upgrade_to_.php http://www.eatdrinksleepmovabletype.com/tutorials/a_faster_upgrade_to_movable_type_316/
+Redirect permanent /2005/04/13/no_more_comment_spam.php http://www.eatdrinksleepmovabletype.com/discussions/no_more_comment_spam_only_trackback_spam/
+Redirect permanent /2005/03/31/stop_producing_track.php http://www.eatdrinksleepmovabletype.com/tutorials/stop_producing_trackback_xml_files/
+Redirect permanent /2005/02/23/a_tagsuggest_featur.php http://www.eatdrinksleepmovabletype.com/tutorials/a_tagsuggest_feature_for_use_with_technorati_a_subject_index_or_anything_else/
+Redirect permanent /2005/02/12/notifications_are_br.php http://www.eatdrinksleepmovabletype.com/discussions/notifications_are_broken_in_315/
+Redirect permanent /2005/01/25/a_faster_upgrade_to_.php http://www.eatdrinksleepmovabletype.com/tutorials/a_faster_upgrade_to_movable_type_315/
+Redirect permanent /2005/01/19/nofollowcode.php http://www.eatdrinksleepmovabletype.com/discussions/nofollow_is_no_good/
+Redirect permanent /2005/01/09/creating_a_googl.php http://www.eatdrinksleepmovabletype.com/tutorials/creating_a_google_suggeststyle_search/
+Redirect permanent /2005/01/07/getting_a_little_tou.php http://www.eatdrinksleepmovabletype.com/discussions/getting_a_little_tougher_on_comment_and_trackback_spam/
+Redirect permanent /2005/01/04/building_a_weighted_.php http://www.eatdrinksleepmovabletype.com/tutorials/building_a_weighted_post_date_list/
+Redirect permanent /2004/12/28/building_a_weighted_.php http://www.eatdrinksleepmovabletype.com/tutorials/building_a_weighted_keyword_list/
+Redirect permanent /2004/12/27/building_a_weighted_.php http://www.eatdrinksleepmovabletype.com/tutorials/building_a_weighted_category_list/
+Redirect permanent /2004/12/12/creating_automatic_b.php http://www.eatdrinksleepmovabletype.com/tutorials/creating_automatic_backups_of_your_movable_type_database/
+Redirect permanent /2004/12/04/making_better_use_of.php http://www.eatdrinksleepmovabletype.com/tutorials/making_better_use_of_the_welcome_message_space/
+Redirect permanent /2004/11/30/the_case_of_the_miss.php http://www.eatdrinksleepmovabletype.com/discussions/the_case_of_the_missing_weblog_an_mtblacklist_bug/
+Redirect permanent /2004/10/17/adding_a_border_to_a.php http://www.eatdrinksleepmovabletype.com/tutorials/adding_a_border_to_all_uploaded_images/
+Redirect permanent /2004/10/07/making_a_dynamic_upl.php http://www.eatdrinksleepmovabletype.com/tutorials/making_a_dynamic_upload_directory/
+Redirect permanent /2004/10/03/using_html_tags_as_.php http://www.eatdrinksleepmovabletype.com/tutorials/using_html_tags_as_glue/
+Redirect permanent /2004/09/10/ive_installed_some.php http://www.eatdrinksleepmovabletype.com/discussions/ive_installed_some_of_the_movable_type_311_plugin_pack/
+Redirect permanent /2004/09/06/running_movable_type.php http://www.eatdrinksleepmovabletype.com/discussions/running_movable_type_311/
+Redirect permanent /2004/09/06/using_google_adsense.php http://www.eatdrinksleepmovabletype.com/tutorials/using_google_adsense_channels_to_track_clicks_in_movable_type_categories/
+Redirect permanent /2004/08/27/php_included_inline.php http://www.eatdrinksleepmovabletype.com/tutorials/php_included_inline_comments_for_movable_type/
+Redirect permanent /2004/07/28/i_want_movable_type_.php http://www.eatdrinksleepmovabletype.com/discussions/i_want_movable_type_31/

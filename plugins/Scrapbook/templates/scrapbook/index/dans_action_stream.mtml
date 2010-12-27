@@ -1,0 +1,141 @@
+ <?php
+    ob_start("ob_gzhandler");
+    include $_SERVER['DOCUMENT_ROOT'].'/template.php'; 
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
+
+<title>Dan&rsquo;s Action Stream, on <mt:BlogName></title>
+
+<link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
+<link rel="stylesheet" href="<MT:StaticWebPath>/plugins/ActionStreams/css/action-streams.css" type="text/css" />
+<script type="text/javascript" src="<mt:Link template="javascript">"></script>
+
+<MTBlogIfCCLicense>
+<mt:CCLicenseRDF>
+</MTBlogIfCCLicense>
+
+<meta http-equiv="imagetoolbar" content="no" />
+
+</head>
+
+<body id="<mt:BlogTemplateSetID>" onload="individualArchivesOnLoad(commenter_name)">
+
+
+
+<mt:Include module="Header">
+
+
+
+
+
+<div id="container">
+
+
+
+
+
+
+<div id="sidebar">
+
+    <div id="path"><span><a href="<mt:BlogURL>">Home</a></span></div>
+
+    
+
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-0046305191831323";
+    google_ad_width = 125;
+    google_ad_height = 125;
+    google_ad_format = "125x125_as";
+    google_ad_type = "text_image";
+    //2007-10-06: 125x125 ATF Sidebar, Individual Entry
+    google_ad_channel = "4239325986+1150505122";
+    google_color_border = "A64D4A";
+    google_color_bg = "8B6439";
+    google_color_link = "F2ECDC";
+    google_color_text = "F2ECDC";
+    google_color_url = "F2ECDC";
+    google_ui_features = "rc:10";
+    //-->
+    </script>
+    <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+
+</div>
+
+
+
+<div id="content">
+
+    <div class="adlinks">
+        <script type="text/javascript"><!--
+        google_ad_client = "pub-0046305191831323";
+        google_ad_width = 468;
+        google_ad_height = 15;
+        google_ad_format = "468x15_0ads_al";
+        //2007-09-10: Top Link Unit
+        google_ad_channel = "3200686530";
+
+        <?php adsense_colors(); ?>
+
+        //--></script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+    </div>
+
+
+
+
+    <h1>Dan&rsquo;s Activity Around the Web</h1>
+    <p>Below is an &ldquo;Action Stream,&rdquo; displaying links to things I&rsquo;ve read, enjoyed, shared and otherwise found noteworthy. It&rsquo;s something of a record of what I&rsquo;ve done.</p>
+
+    <mt:setvar name="mt_author_display_name" value="Dan Wolfgang">
+    <mt:setvar name="author_short_name" value="Dan">
+    <mt:setvar name="past_days" value="15">
+
+    <mt:setvarblock name="name_regex">/<mt:var name="mt_author_display_name">/</mt:setvarblock>
+    <mt:ActionStreams display_name="$mt_author_display_name" days="$past_days" direction="ascend">
+        <mt:if name="__first__">
+<div class="action-stream hfeed">
+    <ul class="action-stream-list">
+        </mt:if>
+
+        <mt:If name="action_type" like="/community/">
+            <mt:Ignore> Don't do anything with community actions. </mt:Ignore>
+        <mt:Else><mt:Ignore> Non-photo actions! </mt:Ignore>
+        <li class="hentry service-icon service-<mt:var name="service_type">">
+            <mt:StreamAction regex_replace="$name_regex","$author_short_name"> on <mt:StreamActionDate format="%A, %B %e, %Y">.
+        </li>
+        </mt:If>
+        <mt:if name="__last__">
+    </ul>
+</div>
+        </mt:if>
+    </mt:ActionStreams>
+
+<mt:Ignore> close the "content" div container </mt:Ignore>
+</div>
+
+
+
+
+
+<div id="right-sidebar">
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<mt:Include module="Footer">

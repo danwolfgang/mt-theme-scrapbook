@@ -1,0 +1,40 @@
+<mt:IfCommentsActive>
+<div id="comments" class="comments">
+    <mt:If name="comment_preview_template">
+        <mt:Include module="Comment Form">
+    </mt:If>
+
+    <mt:Include module="Xomment Panels">
+<mt:Ignore>
+    <mt:Comments>
+        <mt:CommentsHeader>
+    <h2 class="comments-header"><mt:EntryCommentCount> Comments</h2>
+    <div class="comments-content">
+        </MTCommentsHeader>
+        <mt:IfCommentParent>
+        <mt:Else>
+            <mt:Include module="Comment Detail">
+            <mt:CommentReplies>
+                <mt:SetVar name="comment-reply" value="1">
+                <mt:CommentsHeader>
+            <div style="margin-left: 20px;">
+                </mt:CommentsHeader>
+                <mt:Include module="Comment Detail">
+                <mt:CommentRepliesRecurse>
+                <mt:CommentsFooter>
+            </div>
+                </mt:CommentsFooter>
+                <mt:SetVar name="comment-reply" value="0">
+            </mt:CommentReplies>
+        </mt:IfCommentParent>
+        <mt:CommentsFooter>
+    </div>
+        </mt:CommentsFooter>
+    </mt:Comments>
+</mt:Ignore>
+    <MTUnless name="comment_preview_template">
+    <MTInclude module="Comment Form">
+    </MTUnless>
+</div>
+</MTIfCommentsActive>
+

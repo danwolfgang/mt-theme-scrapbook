@@ -1,0 +1,15 @@
+<mt:If name="comment_confirmation">
+    <mt:XommentPanels new_comments="1">
+        <mt:XommentPanelComments>
+            <mt:Include module="Comment Detail">
+        </mt:XommentPanelComments>
+    </mt:XommentPanels>
+<mt:Else name="comment_pending">
+    <div class="comment-pending">
+        <p>Your comment has been received and held for approval by the blog owner.</p>
+    </div>
+<mt:Else name="comment_error">
+    <div class="comment-error">
+        <p>Your comment submission failed for the following reasons: <MT:ErrorMessage></p>
+    </div>
+</mt:If>

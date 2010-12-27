@@ -1,0 +1,43 @@
+<?php include $_SERVER['DOCUMENT_ROOT'].'/template.php'; ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <title>Site Map, on <mt:BlogName></title>
+    <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/Danandsherreecom" />
+</head>
+<body id="<mt:BlogTemplateSetID>">
+
+
+<mt:Include module="Header">
+
+
+<div id="container">
+
+<div id="sidebar">
+    <div id="path"><span><a href="<mt:BlogURL>">Home</a> <span>Site Map</span></span></div>
+</div>
+
+<div id="content">
+
+    <h1>Site Map</h1>
+
+    <mt:ArchiveList type="Yearly">
+    <h2 id="<mt:ArchiveDate format="%Y">"><mt:ArchiveTitle> Archives (featuring <mt:ArchiveCount> entries)</h2>
+    <ul>
+    <mt:ArchiveList type="Monthly">
+        <li><a href="<mt:ArchiveLink>"><mt:ArchiveTitle></a> archives, featuring <mt:ArchiveCount> entries</li>
+    </mt:ArchiveList>
+    </ul>
+    </mt:ArchiveList>
+
+
+<mt:Ignore> close the "content" div container </mt:Ignore>
+</div>
+
+</div>
+
+
+<mt:Include module="Footer">
