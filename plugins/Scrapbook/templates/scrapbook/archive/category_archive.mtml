@@ -8,101 +8,65 @@
     <title>Contents of the <mt:ArchiveTitle> category, on <mt:BlogName></title>
     <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
 </head>
-
 <body id="<mt:BlogTemplateSetID>">
-
-
 
 <mt:Include module="Header">
 
-
-
-
-
 <div id="container">
 
+    <div id="sidebar">
+        <div id="path">
+            <ul>
+                <li>
+                    <a href="<mt:BlogURL>">Home</a>
+                    <ul>
+                        <li>
+                            <mt:ArchiveTitle smarty_pants="1"> Archives
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <mt:If tag="SiteWideSidebarAd">
+        <div class="sidebar-ad">
+            <mt:SiteWideSidebarAd>
+        </div>
+        </mt:If>
+    </div>
+
+    <div id="content">
+
+        <h1><mt:ArchiveTitle smarty_pants="1" widont="1"></h1>
 
 
+        <div id="description">
+            <mt:CategoryDescription smarty_pants="1">
 
+        <mt:HasSubCategories>
+            <p class="noindent">Subcategories:</p>
+            <ul>
+            <mt:SubCategories>
+                <li><a href="<mt:ArchiveLink archive_type="Category">"><mt:CategoryLabel></a></li>
+                <mt:SubCatsRecurse>
+            </mt:SubCategories>
+            </ul>
+        </mt:HasSubCategories>
 
+        <mt:HasParentCategory>
+            <p class="noindent">Parent category: <mt:ParentCategory><a href="../"><mt:CategoryLabel></a></mt:ParentCategory></p>
+        </mt:HasParentCategory>
+        </div>
 
-<div id="sidebar">
+        <p class="noindent"><strong>Entries</strong></p>
+        <ul>
+        <mt:Entries>
+            <li><mt:EntryDate format="%Y/%m/%d">: <a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1" widont="1"></a></li>
+        </mt:Entries>
+        </ul>
 
-<div id="path"><span><a href="<mt:BlogURL>">Home</a> <span><MTArchiveTitle smarty_pants="1"> Archives</span></span></div>
-
-
-
-
-
-<div class="sidebar-ad">
-<script type="text/javascript"><!--
-google_ad_client = "pub-0046305191831323";
-google_ad_width = 120;
-google_ad_height = 240;
-google_ad_format = "120x240_as";
-google_ad_type = "text_image";
-google_ad_channel ="2547201338";
-
-<?php adsense_colors(); ?>
-
-//--></script>
-<script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-</div>
-
-
-</div>
-
-
-
-<div id="content">
-
-
-<h1><MTArchiveTitle smarty_pants="1" widont="1"></h1>
-
-
-<div id="description">
-
-    <MTCategoryDescription smarty_pants="1">
-
-
-<MTHasSubCategories>
-    <p class="noindent">Subcategories:
-    <ul>
-    <MTSubCategories>
-        <li><a href="<MTArchiveLink archive_type="Category">"><MTCategoryLabel></a></li>
-        <MTSubCatsRecurse>
-    </MTSubCategories>
-    </ul>
-    </p>
-</MTHasSubCategories>
-
-<MTHasParentCategory>
-    <p class="noindent">
-    Parent category: <MTParentCategory><a href="../"><MTCategoryLabel></a></MTParentCategory>
-    </p>
-</MTHasParentCategory>
+    <mt:Ignore> close the "content" div container </mt:Ignore>
+    </div>
 
 </div>
-
-
-
-<?php @include($_SERVER['DOCUMENT_ROOT'].'/photos/<MTArchiveTitle dirify="1" trim_to="25">/list.php'); ?>
-
-<p class="noindent"><strong>Entries</strong></p>
-<ul>
-<MTEntries>
-    <li><MTEntryDate format="%Y/%m/%d">: <a href="<mt:EntryPermalink>"><MTEntryTitle smarty_pants="1" widont="1"></a></li>
-</MTEntries>
-</ul>
-
-
-
-<mt:Ignore> close the "content" div container </mt:Ignore>
-</div>
-
-</div>
-
 
 <mt:Include module="Footer">

@@ -10,66 +10,67 @@
 
 <body id="<mt:BlogTemplateSetID>">
 
-
-
 <mt:Include module="Header">
-
-
-
-
 
 <div id="container">
 
+    <div id="sidebar">
 
+        <div id="path">
+            <ul>
+                <li>
+                    <a href="<mt:BlogURL>">Home</a>
+                    <ul>
+                        <li>
+                            <a href="../"><mt:ArchiveDate format="%Y"> Archives</a>
+                            <ul>
+                                <li><mt:ArchiveTitle> Archives</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
+        <mt:ArchivePrevious>
+        <div id="previous">
+            <span>Older:</span> <a href="<mt:ArchiveLink>"><mt:ArchiveTitle> Archives</a>
+        </div>
+        </mt:ArchivePrevious>
 
+        <mt:ArchiveNext>
+        <div id="next">
+            <span>Newer:</span> <a href="<mt:ArchiveLink>"><mt:ArchiveTitle> Archives</a>
+        </div>
+        </mt:ArchiveNext>
 
+    </div>
 
-<div id="sidebar">
+    <div id="content">
 
-<div id="path"><span><a href="<mt:BlogURL>">Home</a> <span><a href="../"><mt:ArchiveDate format="%Y"> Archives</a> <span><MTArchiveTitle> Archives</span></span></span></div>
+        <h1><mt:ArchiveTitle> Archives</h1>
 
-<MTArchivePrevious>
-<div id="previous"><span>Older:</span> <a href="<mt:ArchiveLink>"><mt:ArchiveTitle> Archives</a></div>
-</MTArchivePrevious>
+        <p class="noindent">Contains <mt:ArchiveCount> entries.</p>
 
-<MTArchiveNext>
-<div id="next"><span>Newer:</span> <a href="<mt:ArchiveLink>"><mt:ArchiveTitle> Archives</a></div>
-</MTArchiveNext>
+        <ul>
+        <mt:Entries sort_order="ascend">
+            <li>
+                <mt:EntryDate format="%Y/%m/%d">: 
+                <mt:EntryCategories glue=", ">
+                    <mt:ParentCategories glue=" &#62; ">
+                        <a href="<mt:CategoryArchiveLink>"><mt:CategoryLabel smarty_pants="1"></a>
+                    </mt:ParentCategories>
+                </mt:EntryCategories> &#62; 
+                <a href="<mt:EntryPermalink>">
+                    <mt:EntryTitle smarty_pants="1" widont="1">
+                </a>
+            </li>
+        </mt:Entries>
+        </ul>
+
+    <mt:Ignore> close the "content" div container </mt:Ignore>
+    </div>
 
 </div>
-
-
-
-<div id="content">
-
-
-<h1><MTArchiveTitle> Archives</h1>
-
-
-
-<p>Contains <MTArchiveCount> entries.</p>
-
-
-<ul>
-<MTEntries sort_order="ascend">
-<li><MTEntryDate format="%Y/%m/%d">: <?php
-
-$breaktag = ' ';
-
-echo '<MTEntryCategories glue=",' . $breaktag . '"><MTParentCategories glue="' . $divider . '"><a href="<MTCategoryArchiveLink>"><MTCategoryLabel smarty_pants="1"></a></MTParentCategories></MTEntryCategories>' . $divider . ' ';
-
-?><a href="<MTEntryPermalink>"><MTEntryTitle smarty_pants="1" widont="1"></a></li>
-</MTEntries>
-</ul>
-
-
-
-
-<mt:Ignore> close the "content" div container </mt:Ignore>
-</div>
-
-</div>
-
 
 <mt:Include module="Footer">

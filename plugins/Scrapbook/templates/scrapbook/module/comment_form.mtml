@@ -5,10 +5,10 @@
         <div id="comment-greeting"></div>
     
 <mt:if tag="FacebookApplicationID" ne="">
-    <form id="facebook-signin-form" method="post" action="<mt::AdminCGIPath><mt::CommentScript>">
+    <form id="facebook-signin-form" method="post" action="<mt:AdminCGIPath><mt:CommentScript>">
       <input type="hidden" name="__mode"   value="login_external" />
-      <input type="hidden" name="blog_id"  value="<mt::BlogID>" />
-      <input type="hidden" name="entry_id" value="<mt::EntryID>" />
+      <input type="hidden" name="blog_id"  value="<mt:BlogID>" />
+      <input type="hidden" name="entry_id" value="<mt:EntryID>" />
       <input type="hidden" name="static"   value="1" />
       <input type="hidden" name="key"      value="Facebook" />
       <input type="hidden" name="facebook_id"   id="facebook-signin-id-input" />
@@ -16,37 +16,37 @@
       <input type="hidden" name="facebook_url"  id="facebook-signin-url-input" />
     </form>
     <script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"></script>
-    <script type="text/javascript" src="<mt::StaticWebPath>plugins/FacebookCommenters/fbconnect.js"></script>
-    <script type="text/javascript" src="<mt::StaticWebPath>plugins/FacebookCommenters/signface.js"></script>
+    <script type="text/javascript" src="<mt:StaticWebPath>plugins/FacebookCommenters/fbconnect.js"></script>
+    <script type="text/javascript" src="<mt:StaticWebPath>plugins/FacebookCommenters/signface.js"></script>
     <script type="text/javascript">
-      FB.init('<mt::FacebookApplicationID>','<mt:StaticWebPath>plugins/FacebookCommenters/xd_receiver.html');
+      FB.init('<mt:FacebookApplicationID>','<mt:StaticWebPath>plugins/FacebookCommenters/xd_receiver.html');
     </script>
     </mt:if>
 
-        <form method="post" action="<mt::CGIPath><mt::CommentScript>" name="comments_form" id="comments-form" onsubmit="return mtCommentOnSubmit(this)">
+        <form method="post" action="<mt:CGIPath><mt:CommentScript>" name="comments_form" id="comments-form" onsubmit="return mtCommentOnSubmit(this)">
             <input type="hidden" name="static" value="1" />
-            <input type="hidden" name="entry_id" value="<mt::EntryID>" />
-            <input type="hidden" name="__lang" value="<mt::BlogLanguage>" />
-            <input type="hidden" name="parent_id" value="<mt::CommentParentID>" id="comment-parent-id" />
+            <input type="hidden" name="entry_id" value="<mt:EntryID>" />
+            <input type="hidden" name="__lang" value="<mt:BlogLanguage>" />
+            <input type="hidden" name="parent_id" value="<mt:CommentParentID>" id="comment-parent-id" />
             <input type="hidden" name="armor" value="1" />
             <input type="hidden" name="preview" value="" />
             <input type="hidden" name="sid" value="" />
             <div id="comments-open-data">
                 <div id="comment-form-name">
                     <label for="comment-author">Name</label>
-                    <input id="comment-author" name="author" size="30" value="<mt:If name="comment_preview"><mt::CommentAuthor encode_html="1"></mt:If>" onfocus="mtCommentFormOnFocus()" />
+                    <input id="comment-author" name="author" size="30" value="<mt:If name="comment_preview"><mt:CommentAuthor encode_html="1"></mt:If>" onfocus="mtCommentFormOnFocus()" />
                 </div>
                 <div id="comment-form-email">
                     <label for="comment-email">Email Address</label>
-                    <input id="comment-email" name="email" size="30" value="<mt:If name="comment_preview"><mt::CommentEmail encode_html="1"></mt:If>" onfocus="mtCommentFormOnFocus()" />
+                    <input id="comment-email" name="email" size="30" value="<mt:If name="comment_preview"><mt:CommentEmail encode_html="1"></mt:If>" onfocus="mtCommentFormOnFocus()" />
                 </div>
                 <div id="comment-form-url">
                     <label for="comment-url">URL</label>
-                    <input id="comment-url" name="url" size="30" value="<mt:If name="comment_preview"><mt::CommentURL encode_html="1"></mt:If>" onfocus="mtCommentFormOnFocus()" />
+                    <input id="comment-url" name="url" size="30" value="<mt:If name="comment_preview"><mt:CommentURL encode_html="1"></mt:If>" onfocus="mtCommentFormOnFocus()" />
                 </div>
             </div>
             <div id="comment-form-reply"<mt:IfCommentParent><mt:Else> style="display:none"</mt:IfCommentParent>>
-                <input type="checkbox" id="comment-reply" name="comment_reply" value="<mt::CommentParentID>"<mt:IfCommentParent> checked="checked"</mt:IfCommentParent> onclick="mtSetCommentParentID()" />
+                <input type="checkbox" id="comment-reply" name="comment_reply" value="<mt:CommentParentID>"<mt:IfCommentParent> checked="checked"</mt:IfCommentParent> onclick="mtSetCommentParentID()" />
                 <label for="comment-reply" id="comment-reply-label"><label for="comment-reply" id="comment-reply-label"><mt:IfCommentParent>Replying to comment from <mt:CommentParent><mt:CommentAuthor></mt:CommentParent></mt:IfCommentParent></label></label>
             </div>
             <div id="comments-open-text">
@@ -59,7 +59,7 @@
                 <input type="submit" accesskey="v" name="preview_button" id="comment-preview" value="Preview" onclick="this.form.preview.value='1';" />
                 <input type="submit" accesskey="s" name="post" id="comment-submit" value="Submit" />
     <mt:If name="comment_preview">
-                <input type="button" name="cancel" id="comment-cancel" value="Cancel" onclick="window.location='<mt::EntryPermalink>'" />
+                <input type="button" name="cancel" id="comment-cancel" value="Cancel" onclick="window.location='<mt:EntryPermalink>'" />
     </mt:If>
             </div>
         </form>
@@ -72,4 +72,3 @@ mtAttachEvent("unload", mtEntryOnUnload);
 //-->
 </script>
 </mt:IfCommentsAccepted>
-

@@ -55,7 +55,7 @@ function mtScore(entry_id) {
     if (!xh) return false;
 
     DOM.addClassName( span, 'scoring-pending' );
-    var url = '<mt::CGIPath><mt::CommunityScript>';
+    var url = '<mt:CGIPath><mt:CommunityScript>';
     xh.open('POST', url, true);
     xh.onreadystatechange = function() {
         if ( xh.readyState == 4 ) {
@@ -67,7 +67,7 @@ function mtScore(entry_id) {
         }
     };
     xh.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
-    xh.send( '__mode=vote&blog_id=<mt::BlogID>&f=scored,count&jsonp=mtScore_cb&id=' + entry_id);
+    xh.send( '__mode=vote&blog_id=<mt:BlogID>&f=scored,count&jsonp=mtScore_cb&id=' + entry_id);
     return false;
 }
 
@@ -91,7 +91,7 @@ function mtUpdateScores() {
     var xh = mtGetXmlHttp();
     if (!xh) return false;
 
-    var url = '<mt::CGIPath><mt::CommunityScript>';
+    var url = '<mt:CGIPath><mt:CommunityScript>';
     xh.open('POST', url, true);
     xh.onreadystatechange = function() {
         if ( xh.readyState == 4 ) {
@@ -103,7 +103,7 @@ function mtUpdateScores() {
         }
     };
     xh.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
-    xh.send( '__mode=score&blog_id=<mt::BlogID>&f=scored,count&jsonp=mtScore_cb&id=' + entry_ids);
+    xh.send( '__mode=score&blog_id=<mt:BlogID>&f=scored,count&jsonp=mtScore_cb&id=' + entry_ids);
     return false;
 }
 
@@ -235,7 +235,7 @@ function favorite(evt, entry_id, score_span) {
     var src = evt.target || evt.srcElement;
     if (src) detachEvent(src, 'click', arguments.callee);
 
-    var url = '<mt::CGIPath><mt::CommunityScript>';
+    var url = '<mt:CGIPath><mt:CommunityScript>';
     xh.open('POST', url, true);
     xh.onreadystatechange = function() {
         if ( xh.readyState == 4 ) {
@@ -247,9 +247,9 @@ function favorite(evt, entry_id, score_span) {
         }
     };
     xh.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
-    xh.send( '__mode=vote&blog_id=<mt::BlogID>&f=scored,sum&jsonp=favorite_cb&id=' + entry_id);
+    xh.send( '__mode=vote&blog_id=<mt:BlogID>&f=scored,sum&jsonp=favorite_cb&id=' + entry_id);
     var span = document.getElementById(score_span);
-    if (span) span.innerHTML = '<img src="<mt::StaticWebPath>images/indicator.white.gif" height="10" width="10" alt="favoriting..." />';
+    if (span) span.innerHTML = '<img src="<mt:StaticWebPath>images/indicator.white.gif" height="10" width="10" alt="favoriting..." />';
 
 }
 </mt:IfBlog>
@@ -264,7 +264,7 @@ function script_follow(id) {
     if (!u || !u.name) return;
     var xh = mtGetXmlHttp();
     if (!xh) return false;
-    xh.open('POST', '<mt::CGIPath><mt::CommunityScript>', true);
+    xh.open('POST', '<mt:CGIPath><mt:CommunityScript>', true);
     xh.onreadystatechange = function() {
         if ( xh.readyState == 4 ) {
             if (xh.status && ( xh.status != 200 ) ) {
@@ -278,7 +278,7 @@ function script_follow(id) {
     xh.send( '__mode=follow&id=' + id + '&magic_token=' + u.sid + '&jsonp=follow' );
     DOM.addClassName( 'following_' + id + '_else', 'hidden');
     var span = document.getElementById('following-status');
-    if (span) span.innerHTML = '<img src="<mt::StaticWebPath>images/indicator.white.gif" height="10" width="10" alt="Following..." />';
+    if (span) span.innerHTML = '<img src="<mt:StaticWebPath>images/indicator.white.gif" height="10" width="10" alt="Following..." />';
 }
 
 function script_leave(id) {
@@ -286,7 +286,7 @@ function script_leave(id) {
     if (!u || !u.name) return;
     var xh = mtGetXmlHttp();
     if (!xh) return false;
-    xh.open('POST', '<mt::CGIPath><mt::CommunityScript>', true);
+    xh.open('POST', '<mt:CGIPath><mt:CommunityScript>', true);
     xh.onreadystatechange = function() {
         if ( xh.readyState == 4 ) {
             if (xh.status && ( xh.status != 200 ) ) {
@@ -300,7 +300,7 @@ function script_leave(id) {
     xh.send( '__mode=leave&id=' + id + '&magic_token=' + u.sid + '&jsonp=leave' );
     DOM.addClassName('following_' + id, "hidden");
     var span = document.getElementById('following-status');
-    if (span) span.innerHTML = '<img src="<mt::StaticWebPath>images/indicator.white.gif" height="10" width="10" alt="Leaving..." />';
+    if (span) span.innerHTML = '<img src="<mt:StaticWebPath>images/indicator.white.gif" height="10" width="10" alt="Leaving..." />';
 }
 
 function follow(user_info) {
@@ -564,10 +564,10 @@ function getXmlHttp() { return mtGetXmlHttp() }
 </mt:Ignore>
 
 // The cookie name to use for storing the blog-side comment session cookie.
-var mtCookieName = "<mt::UserSessionCookieName>";
-var mtCookieDomain = "<mt::UserSessionCookieDomain>";
-var mtCookiePath = "<mt::UserSessionCookiePath>";
-var mtCookieTimeout = <mt::UserSessionCookieTimeout>;
+var mtCookieName = "<mt:UserSessionCookieName>";
+var mtCookieDomain = "<mt:UserSessionCookieDomain>";
+var mtCookiePath = "<mt:UserSessionCookiePath>";
+var mtCookieTimeout = <mt:UserSessionCookieTimeout>;
 
 <mt:Ignore>
 /***
@@ -674,7 +674,7 @@ function mtEditLink(entry_id, author_id) {
     if (! entry_id) return;
     if (! author_id) return;
     if (u.id != author_id) return;
-    var link = '<a href="<mt::AdminScript>?__mode=view&amp;_type=entry&amp;id=' + entry_id + '">Edit</a>';
+    var link = '<a href="<mt:AdminScript>?__mode=view&amp;_type=entry&amp;id=' + entry_id + '">Edit</a>';
     document.write(link);
 }
 
@@ -701,7 +701,7 @@ function mtShowCaptcha() {
     if (mtCaptchaVisible) return;
     var div = document.getElementById('comments-open-captcha');
     if (div) {
-        div.innerHTML = '<mt::CaptchaFields>';
+        div.innerHTML = '<mt:CaptchaFields>';
         mtCaptchaVisible = true;
     }
 }
@@ -863,7 +863,7 @@ function mtFetchUser(cb) {
         mtFetchedUser = true;
         var script = document.createElement('script');
         var ts = new Date().getTime();
-        script.src = '<mt::CGIPath><mt::CommentScript>?__mode=session_js&blog_id=<mt::BlogID>&jsonp=' + cb + '&ts=' + ts;
+        script.src = '<mt:CGIPath><mt:CommentScript>?__mode=session_js&blog_id=<mt:BlogID>&jsonp=' + cb + '&ts=' + ts;
         (document.getElementsByTagName('head'))[0].appendChild(script);
     }
 }
@@ -898,7 +898,7 @@ function mtCommentOnSubmit(f) {
         mtRequestSubmitted = true;
 
         if (f.armor)
-            f.armor.value = '<mt::BlogSitePath encode_sha1="1">';
+            f.armor.value = '<mt:BlogSitePath encode_sha1="1">';
         if (f.bakecookie && f.bakecookie.checked)
             mtSaveUser(f);
 
@@ -1024,13 +1024,13 @@ mtAttachEvent('usersignin', mtUserOnLoad);
 function mtSignIn() {
     var doc_url = document.URL;
     doc_url = doc_url.replace(/#.+/, '');
-    var url = '<mt::CGIPath><mt::CommunityScript>?__mode=login&blog_id=<mt::BlogID>';
+    var url = '<mt:CGIPath><mt:CommunityScript>?__mode=login&blog_id=<mt:BlogID>';
     if (is_preview) {
         if ( document['comments_form'] ) {
             var entry_id = document['comments_form'].entry_id.value;
             url += '&entry_id=' + entry_id;
         } else {
-            url += '&return_url=<mt::BlogURL encode_url="1">';
+            url += '&return_url=<mt:BlogURL encode_url="1">';
         }
     } else {
         url += '&return_url=' + encodeURIComponent(doc_url);
@@ -1075,13 +1075,13 @@ function mtSignOut(entry_id) {
     mtClearUser();
     var doc_url = document.URL;
     doc_url = doc_url.replace(/#.+/, '');
-    var url = '<mt::CGIPath><mt::CommunityScript>?__mode=logout&blog_id=<mt::BlogID>';
+    var url = '<mt:CGIPath><mt:CommunityScript>?__mode=logout&blog_id=<mt:BlogID>';
     if (is_preview) {
         if ( document['comments_form'] ) {
             var entry_id = document['comments_form'].entry_id.value;
             url += '&entry_id=' + entry_id;
         } else {
-            url += '&return_url=<mt::BlogURL encode_url="1">';
+            url += '&return_url=<mt:BlogURL encode_url="1">';
         }
     } else {
         url += '&return_url=' + encodeURIComponent(doc_url);
@@ -1131,7 +1131,7 @@ function mtShowGreeting() {
         } else {
             var user_link;
             if ( u.is_author ) {
-                user_link = '<a href="<mt::CGIPath><mt::CommunityScript>?__mode=edit&amp;return_to=' + encodeURIComponent(document.URL) + '&amp;blog_id=<mt::BlogID>';
+                user_link = '<a href="<mt:CGIPath><mt:CommunityScript>?__mode=edit&amp;return_to=' + encodeURIComponent(document.URL) + '&amp;blog_id=<mt:BlogID>';
                 user_link += '">' + u.name + '</a>';
             } else {
                 // registered user, but not a user with posting rights

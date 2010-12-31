@@ -81,10 +81,8 @@ body {
 }
 
 #title {
-    background: url(<mt:PluginStaticWebPath component="scrapbook">images/danandsherree.com.gif) no-repeat;
-    width: 750px;
+    width: 973px;
     height: 102px;
-    margin: -7px auto 0 auto;
     position: relative;
     z-index: 200;
 }
@@ -93,12 +91,22 @@ body {
     display: block;
     width: 750px;
     height: 100px;
+    margin: 0 auto;
+<mt:If tag="HeaderTitle">
+    <mt:HeaderTitleAsset>
+    background: url(<mt:AssetURL>) no-repeat;
+    </mt:HeaderTitleAsset>
     overflow: hidden;
     text-indent: -5000px;
+<mt:Else>
+    font-size: 50px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 20px;
+</mt:If>
 }
 
 #photo {
-    background: url(<mt:PluginStaticWebPath component="scrapbook">images/photo.gif) no-repeat;
     position: absolute;
     top: 60px;
     left: 5px;
@@ -107,6 +115,7 @@ body {
     padding: 0;
     margin: 0;
     z-index: 100;
+    overflow: hidden;
 }
 
 
@@ -296,10 +305,12 @@ body {
     margin : 25px 0;
 }
 
+#sidebar #path ul { list-style-type: none; }
+#sidebar #path ul li,
 #sidebar #path span {
-    display : block;
     text-transform: capitalize;
     padding : 0 0 0 15px;
+    margin-left: 0;
     font-weight : bold;
     background : url(<mt:PluginStaticWebPath component="scrapbook">images/arrow.gif) no-repeat 0px 5px;
 }

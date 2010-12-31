@@ -8,8 +8,8 @@
 
         <div id="menu">
             <ul class="level1">
-                <li class="submenu" style="margin-top: -10px;"><a href="http://feeds.feedburner.com/Danandsherreecom"><img src="<mt:PluginStaticWebPath component="scrapbook">images/feed-icon.png" width="36" height="36" border="0" alt="Subscribe to the newsfeed!" title="Subscribe to the newsfeed!" /></a></li>
-                <li class="submenu" style="margin-top: -10px; margin-right: 100px;"><a href="http://danandsherree.com/up_to_date.php"><img src="<mt:PluginStaticWebPath component="scrapbook">images/mail-icon.png" width="36" height="36" border="0" alt="Subscribe to e-mail notifications!" title="Subscribe to e-mail notifications!" /></a></li>
+                <li class="submenu" style="margin-top: -10px;"><a href="<mt:FeedburnerURL>"><img src="<mt:PluginStaticWebPath component="scrapbook">images/feed-icon.png" width="36" height="36" border="0" alt="Subscribe to the newsfeed!" title="Subscribe to the newsfeed!" /></a></li>
+                <li class="submenu" style="margin-top: -10px; margin-right: 100px;"><a href="<mt:BlogURL>up_to_date.php"><img src="<mt:PluginStaticWebPath component="scrapbook">images/mail-icon.png" width="36" height="36" border="0" alt="Subscribe to e-mail notifications!" title="Subscribe to e-mail notifications!" /></a></li>
                 <li class="submenu"><a href="<mt:Link template="journal">" title="Other stuff that you'll find on our site." class="journal">Journal</a></li>
             <mt:Pages tag="@about" lastn="1">
                 <li class="submenu"><a href="<mt:PagePermalink>" title="Some basic information about us." class="about">About Us</a></li>
@@ -25,7 +25,13 @@
             </ul>
         </div>
 
-        <div id="photo"></div>
+    <mt:If tag="HeaderAccentPhoto">
+        <mt:HeaderAccentPhotoAsset>
+        <div id="photo">
+            <img src="<mt:AssetURL>" width="165" height="160" />
+        </div>
+        </mt:HeaderAccentPhotoAsset>
+    </mt:If>
 
     </div>
 </div>

@@ -4,8 +4,8 @@ name: 'Scrapbook'
 description: 'The Scrapbook theme was originally created in 2005 for danandsherree.com'
 author_link: 'http://danandsherree.com'
 author_name: 'Dan Wolfgang'
-version: 1.0
-static_version: 1
+version: 1.1
+static_version: 2
 
 default_templates:
   base_path: templates/global
@@ -18,7 +18,144 @@ template_sets:
     scrapbook:
         base_path: templates/scrapbook
         label: Scrapbook
-
+        preview: preview.jpg
+        thumbnail: thumb.jpg
+        options:
+            fieldsets:
+                global:
+                    label: 'Global Options'
+                    order: 1
+                ads:
+                    label: 'Advertising'
+                    order: 2
+                callbacks:
+                    label: 'Callbacks'
+                    order: 10
+            # Global Options
+            header_title:
+                label: 'Header Title Image'
+                hint: 'Upload a header title image measuring 750 x 100 pixels. If no header title image is specified, plain text will be used to display the blog name.'
+                type: file
+                tag: HeaderTitle
+                fieldset: global
+            header_accent_photo:
+                label: 'Header Accent Photo'
+                hint: 'Upload a 165 x 160 pixel accent photo.'
+                type: file
+                tag: HeaderAccentPhoto
+                fieldset: global
+            footer_text:
+                label: 'Footer Text'
+                hint: 'Enter text to be displayed in the site footer. MT tags can be used here.'
+                type: textarea
+                rows: 5
+                default: >
+                    <p>Find what you're looking for using the <a href="<mt:Link template="site_map">">Site Map</a> or <a href="<mt:CGIPath><mt:SearchScript>">Search</a>, or maybe even on the <a href="<mt:BlogURL>">front page</a>.</p><p>All content copyright &copy; 2003-<MTDate format="%Y"> by <a href="<mt:BlogURL>"><mt:BlogName></a>.</p>
+                tag: FooterText
+                fieldset: global
+            feederburner_url:
+                label: 'Feedburner URL'
+                hint: 'Use Feedburner to track users of your RSS feed.'
+                type: text
+                tag: FeedburnerURL
+                fieldset: global
+            # Advertising
+            site_wide_ads:
+                label: 'Site-Wide'
+                type: separator
+                fieldset: ads
+                order: 10
+            site_sidebar:
+                label: 'Site-Wide Sidebar Ad'
+                hint: 'The sidebar area is 170 pixels wide; supply an ad of less than that width.'
+                type: textarea
+                tag: SiteWideSidebarAd
+                fieldset: ads
+                order: 11
+            site_content_adlinks:
+                label: 'Site-Wide Content Column Adlinks'
+                hint: 'A Google AdSense "adlinks" format ad can be displayed just beneath the header and above the content.'
+                type: textarea
+                tag: SiteWideAdLinks
+                fieldset: ads
+                order: 12
+            home_ads:
+                label: 'Home Page'
+                type: separator
+                fieldset: ads
+                order: 20
+            home_sidebar:
+                label: 'Home Page Sidebar Ad'
+                hint: 'The sidebar area is 170 pixels wide; supply an ad of less than that width.'
+                type: textarea
+                tag: HomePageSidebarAd
+                fieldset: ads
+                order: 21
+            home_content_adlinks:
+                label: 'Home Page Content Column Adlinks'
+                hint: 'A Google AdSense "adlinks" format ad can be displayed just beneath the header and above the content.'
+                type: textarea
+                tag: HomePageAdLinks
+                fieldset: ads
+                order: 22
+            home_content_ad:
+                label: 'Home Page Content Column Ads'
+                hint: 'An ad can be displayed after the first three ads on the home page.'
+                type: textarea
+                tag: HomePageAd
+                fieldset: ads
+                order: 23
+            page_ads:
+                label: 'Pages'
+                hint: 'Pages will display one of two ads depending upon their content: if only the Body field is used, the Body Only ad is displayed; if the Body and Extended fields are used, the Body and Extended ad is displayed.'
+                type: separator
+                fieldset: ads
+                order: 30
+            page_body_only_ad:
+                label: 'Body Only'
+                type: textarea
+                tag: PageBodyOnlyAd
+                fieldset: ads
+                order: 31
+            page_body_and_extended_ad:
+                label: 'Body and Extended'
+                type: textarea
+                tag: PageBodyAndExtendedAd
+                fieldset: ads
+                order: 32
+            entry_ads:
+                label: 'Entries'
+                hint: 'Entries will display one of two ads depending upon their content: if only the Body field is used, the Body Only ad is displayed; if the Body and Extended fields are used, the Body and Extended ad is displayed.'
+                type: separator
+                fieldset: ads
+                order: 40
+            entry_body_only_ad:
+                label: 'Body Only'
+                type: textarea
+                tag: EntryBodyOnlyAd
+                fieldset: ads
+                order: 41
+            entry_body_and_extended_ad:
+                label: 'Body and Extended'
+                type: textarea
+                tag: EntryBodyAndExtendedAd
+                fieldset: ads
+                order: 42
+            entry_after_entry_ad:
+                label: 'After Entry Content'
+                hint: 'Display an ad after the entry Body and Extended fields, but before comments.'
+                type: textarea
+                tag: EntryAfterEntryAd
+                fieldset: ads
+                order: 43
+            # Callbacks
+            callback_before_body:
+                label: 'Before &lt;/body&gt;'
+                hint: 'An area to include any HTML before the &lt;/body&gt; tag. Ideal for including Javascript for Google Analytics or Mint, for example.'
+                type: textarea
+                rows: 5
+                tag: CallbackBeforeBody
+                fieldset: callbacks
         templates:
             archive:
                 category_archive:
@@ -78,7 +215,7 @@ template_sets:
                             preferred: 1
             index:
                 ajax_comments_javascript:
-                    build_type: 2
+                    build_type: 4
                     filename: index/ajax_comments_javascript.mtml
                     label: 'Ajax Comments Javascript'
                     outfile: ajaxcomments.js
@@ -96,19 +233,19 @@ template_sets:
                     outfile: sitemap.xml
                     rebuild_me: 1
                 htaccess:
-                    build_type: 2
+                    build_type: 4
                     filename: index/htaccess.mtml
                     label: '.htaccess'
                     outfile: '.htaccess'
                     rebuild_me: 1
                 javascript:
-                    build_type: 2
+                    build_type: 4
                     filename: index/javascript.mtml
                     label: JavaScript
                     outfile: mt-site.js
                     rebuild_me: 1
                 javascript_poll_position:
-                    build_type: 2
+                    build_type: 4
                     filename: index/javascript_poll_position.mtml
                     label: 'Javascript: Poll Position'
                     outfile: pollposition.js
@@ -143,16 +280,10 @@ template_sets:
                     outfile: weekly.rss
                     rebuild_me: 1
                 styles:
-                    build_type: 2
+                    build_type: 4
                     filename: index/styles.mtml
-                    label: 'Scrapbook Styles'
+                    label: 'Styles'
                     outfile: styles.css
-                    rebuild_me: 1
-                site-wide_template_with_php_stuff:
-                    build_type: 2
-                    filename: index/site-wide_template_with_php_stuff.mtml
-                    label: 'Site-Wide Template with PHP Stuff'
-                    outfile: template.php
                     rebuild_me: 1
                 site_map:
                     build_type: 4
@@ -161,7 +292,7 @@ template_sets:
                     outfile: siteindex.php
                     rebuild_me: 1
                 xomment_javascript:
-                    build_type: 2
+                    build_type: 4
                     filename: index/xomment_javascript.mtml
                     label: 'Xomment JavaScript'
                     outfile: xomment.js
@@ -196,6 +327,9 @@ template_sets:
                         include_ssi: 1
                         expire_type: 1
                         expire_interval: 86400
+                main_index_entry_summary:
+                    filename: module/main_index_entry_summary.mtml
+                    label: 'Main Index Entry Summary'
                 rss_weekly_timer:
                     cache:
                         expire_interval: 36288000
@@ -234,9 +368,9 @@ template_sets:
                 entry_meta:
                     filename: widget/entry_meta.mtml
                     label: 'Entry Meta'
-                google_adsense_125_x_125:
-                    filename: widget/google_adsense_125_x_125.mtml
-                    label: 'Google AdSense: 125 x 125'
+                site_wide_sidebar_ad:
+                    filename: widget/site_wide_sidebar_ad.mtml
+                    label: 'Site-Wide Sidebar Ad'
                 previousnext_links:
                     filename: widget/previousnext_links.mtml
                     label: 'Previous/Next Links'
@@ -248,7 +382,7 @@ template_sets:
                     label: 'Left Column'
                     widgets:
                         - 'Entry Meta'
-                        - 'Google AdSense: 125 x 125'
+                        - 'Site-Wide Sidebar Ad'
                 right_column:
                     label: 'Right Column'
                     widgets:

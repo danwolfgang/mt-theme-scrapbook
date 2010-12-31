@@ -7,7 +7,7 @@
     <meta http-equiv="imagetoolbar" content="no" />
     <title>Journal Entries, on <mt:BlogName></title>
     <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/Danandsherreecom" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="<mt:FeedburnerURL>" />
 </head>
 
 <body id="<mt:BlogTemplateSetID>">
@@ -22,7 +22,16 @@
 
 
 <div id="sidebar">
-    <div id="path"><span><a href="<mt:BlogURL>">Home</a> <span>Journal Entries</span></span></div>
+    <div id="path">
+        <ul>
+            <li>
+                <a href="<mt:BlogURL>">Home</a>
+                <ul>
+                    <li>Journal Entries</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
     
 </div>
 

@@ -10,7 +10,7 @@
         <mt:CommentsHeader>
     <h2 class="comments-header"><mt:EntryCommentCount> Comments</h2>
     <div class="comments-content">
-        </MTCommentsHeader>
+        </mt:CommentsHeader>
         <mt:IfCommentParent>
         <mt:Else>
             <mt:Include module="Comment Detail">
@@ -32,9 +32,9 @@
         </mt:CommentsFooter>
     </mt:Comments>
 </mt:Ignore>
-    <MTUnless name="comment_preview_template">
-    <MTInclude module="Comment Form">
-    </MTUnless>
+    <mt:Unless name="comment_preview_template">
+    <mt:Include module="Comment Form">
+    </mt:Unless>
 </div>
-</MTIfCommentsActive>
+</mt:IfCommentsActive>
 

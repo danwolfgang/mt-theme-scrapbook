@@ -1,169 +1,130 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
-
-<title>Search, on <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
-
-<title>Search, on <mt:BlogName></title>
-
-<link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
-
-<meta http-equiv="imagetoolbar" content="no" />
-
+    <meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <title>Search, on <mt:BlogName></title>
+    <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
 </head>
 
 <body id="<mt:BlogTemplateSetID>">
 
 
-<!-- google_ad_section_start(weight=ignore) -->
-
-
-<div id="header">
-<div id="header-inner">
-
-<a href="<mt:BlogURL>"><h2 id="title"><mt:BlogName></h2></a>
-
-<div id="menu">
-<ul class="level1">
-	<li class="submenu"><a href="/journal.php" title="Other stuff that you'll find on our site." class="journal">Journal</a></li>
-	<li class="submenu"><a href="/about_us/" title="Some basic information about us." class="about">About Us</a></li>
-	<li class="submenu"><form method="get" action="<mt::CGIPath><mt::SearchScript>" class="search_bar">
-<input id="search" name="search" size="20" value="" /> <input type="image" src="/styles/scrapbook/search.gif" class="search" id="search_button" align="middle" title="Type a search term and click 'search.'" />
-<input name="dosearch" value="1" type="hidden" />
-<input name="ExcludeBlogs" value="11" type="hidden" /></form></li>
-
-</ul>
-</div>
-
-<div id="photo"></div>
-
-</div>
-</div>
-
-<!-- google_ad_section_end -->
-
-
-
-
+<mt:Include module="Header">
 
 
 <div id="container">
 
 
-
-
-
-
 <div id="sidebar">
-
-<div id="path"><span><a href="<mt:BlogURL>">Home</a> <span>Search</span></span></div>
-
+    <div id="path">
+        <ul>
+            <li>
+                <a href="<mt:BlogURL>">Home</a>
+                <ul>
+                    <li>Search</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </div>
-
-
 
 <div id="content">
 
+    <h1>Search <mtBlogName></h1>
+    <form method="post" action="<mt:CGIPath><mt:SearchScript>" id="search-form">
+        <input type="hidden" name="IncludeBlogs" value="<mt:SearchIncludeBlogs>" />
+        <p><input type="text" size="30" name="search" id="search" value="<mt:SearchString encode_html="1">" /> <input type="submit" value="Search" /></p>
+        <p id="search-options"><input type="checkbox" name="CaseSearch" /> Match case <input type="checkbox" name="RegexSearch" /> Regex search</p>
+    </form>
 
-<h1>Search <mtBlogName></h1>
-          <form method="post" action="<mt:CGIPath><mt:SearchScript>" id="search-form">
-         <input type="hidden" name="IncludeBlogs" value="<mt:SearchIncludeBlogs>" />
-         <p><input type="text" size="30" name="search" id="search" value="<mt:SearchString encode_html="1">" /> <input type="submit" value="Search" /></p>
-         <p id="search-options"><input type="checkbox" name="CaseSearch" /> Match case <input type="checkbox" name="RegexSearch" /> Regex search</p>
-          </form>
+
+    <MTIgnore>
+        ##########  SEARCH RESULTS DISPLAY
+    </MTIgnore>
+    <MTSearchResults>
+      <MTBlogResultHeader>
+          <h2 class="search-results-header">
+          <MTIfStraightSearch>
+              Matching entries from <mt:BlogName>
+          </MTIfStraightSearch>
+          <MTIfTagSearch>
+              Entries tagged with &ldquo;<mt:SearchString>&rdquo;
+              </MTIfTagSearch>
+          </h2>
+          <p>Found <mt:SearchResultCount> entries.</p>
+          <div class="search-results-container">
+      </MTBlogResultHeader>
+
+          <h3><a href="<mt:EntryPermalink>"><mt:EntryTitle></a></h3>
+          <p><mt:EntryExcerpt></p>
+          <MTIfTagSearch>
+              <div class="entry-tags">
+                  <p>Tags: <MTEntryTags glue=", "><a href="<mt:TagSearchLink>" rel="tag"><mt:TagName></a></MTEntryTags>
+                  </p>
+              </div>
+          </MTIfTagSearch>
+
+          <p class="entry-footer">
+              <span class="post-footers">Posted <MTIfNonEmpty tag="EntryAuthorDisplayName">by <mt:EntryAuthorDisplayName> </MTIfNonEmpty>on <mt:EntryDate></span>
+          </p>
+
+      <MTBlogResultFooter>
+          </div>
+      </MTBlogResultFooter>
+    </MTSearchResults>
+
+    <MTIgnore>
+      ##########  NO RESULTS FOUND MESSAGE
+    </MTIgnore>
+    <MTNoSearchResults>
+      <h2 class="search-results-header">
+          <MTIfStraightSearch>
+              Entries matching '<mt:SearchString>'
+          </MTIfStraightSearch>
+          <MTIfTagSearch>
+              Entries tagged with '<mt:SearchString>'
+          </MTIfTagSearch>
+      </h2>
+      <p>No pages were found containing '<mt:SearchString>'.</p>
+    </MTNoSearchResults>
+
+    <MTNoSearch>
+      <h3 class="search-results-header">Instructions</h3>
+      <p>By default, this search engine looks for all words in any order. To search for an exact phrase, enclose the phrase in quotes:</p>
+      <blockquote>
+          <p><code>"movable type"</code></p>
+      </blockquote>
+      <p>The search engine also supports AND, OR, and NOT keywords to specify boolean expressions:</p>
+      <blockquote>
+          <p><code>personal OR publishing</code></p>
+          <p><code>publishing NOT personal</code></p>
+      </blockquote>
+    </MTNoSearch>
 
 
-<MTIgnore>
-    ##########  SEARCH RESULTS DISPLAY
-</MTIgnore>
-<mt:Ignore>
-<mt:TagIntersections>
+
+
+
+</div>
+
+<div id="right-sidebar">
+
+<mt:Tags top="10">
     <mt:If name="__first__">
-    <h2>The parent tag search string is &quot;<mt:ParentTagSearch>.&quot;</h2>
-    <p>Found <mt:SearchResultCount> entries.</p>
-    <p>Tag intersections: find entries that are <strong>also</strong> tagged with:</p>
-    <ul>
-    </mt:If name="__first__">
-        <li><a href="<mt:CGIPath><mt:SearchScript>?blog_id=<mt:BlogID>&tag=<mt:ParentTagSearch> AND <mt:TagIntersectionTagName encode_url="1">&limit=20"><mt:TagIntersectionTagName></a> (<mt:TagIntersectionTagCount>)</li>
+        <p style="margin-bottom:0"><strong>Most-used Tags</strong></p>
+        <ul>
+    </mt:if>
+            <li><a href="javascript:void(0)" onclick="location.href='<mt:TagSearchLink encode_js="1">';return false;" rel="tag"><mt:TagName></a></li>
     <mt:If name="__last__">
-    </ul>
+        </ul>
     </mt:If>
-</mt:TagIntersections>
-</mt:Ignore>
-                      <MTSearchResults>
-                          <MTBlogResultHeader>
-                              <h2 class="search-results-header">
-                              <MTIfStraightSearch>
-                                  Matching entries from <mt:BlogName>
-                              </MTIfStraightSearch>
-                              <MTIfTagSearch>
-                                  Entries tagged with &ldquo;<mt:SearchString>&rdquo;
-                                  </MTIfTagSearch>
-                              </h2>
-                              <p>Found <mt:SearchResultCount> entries.</p>
-                              <div class="search-results-container">
-                          </MTBlogResultHeader>
-                      
-                              <h3><a href="<mt:EntryPermalink>"><mt:EntryTitle></a></h3>
-                              <p><mt:EntryExcerpt></p>
-                              <MTIfTagSearch>
-                                  <div class="entry-tags">
-                                      <p>Tags: <MTEntryTags glue=", "><a href="<mt:TagSearchLink>" rel="tag"><mt:TagName></a></MTEntryTags>
-                                      </p>
-                                  </div>
-                              </MTIfTagSearch>
-                      
-                              <p class="entry-footer">
-                                  <span class="post-footers">Posted <MTIfNonEmpty tag="EntryAuthorDisplayName">by <mt:EntryAuthorDisplayName> </MTIfNonEmpty>on <mt:EntryDate></span>
-                              </p>
-                      
-                          <MTBlogResultFooter>
-                              </div>
-                          </MTBlogResultFooter>
-                      </MTSearchResults>
-
-<MTIgnore>
-  ##########  NO RESULTS FOUND MESSAGE
-</MTIgnore>
-                      <MTNoSearchResults>
-                          <h2 class="search-results-header">
-                              <MTIfStraightSearch>
-                                  Entries matching '<mt:SearchString>'
-                              </MTIfStraightSearch>
-                              <MTIfTagSearch>
-                                  Entries tagged with '<mt:SearchString>'
-                              </MTIfTagSearch>
-                          </h2>
-                          <p>No pages were found containing '<mt:SearchString>'.</p>
-                      </MTNoSearchResults>
-                      
-                      <MTNoSearch>
-                          <h3 class="search-results-header">Instructions</h3>
-                          <p>By default, this search engine looks for all words in any order. To search for an exact phrase, enclose the phrase in quotes:</p>
-                          <blockquote>
-                              <p><code>"movable type"</code></p>
-                          </blockquote>
-                          <p>The search engine also supports AND, OR, and NOT keywords to specify boolean expressions:</p>
-                          <blockquote>
-                              <p><code>personal OR publishing</code></p>
-                              <p><code>publishing NOT personal</code></p>
-                          </blockquote>
-                      </MTNoSearch>
-
-
-
-
+</mt:Tags>
 
 </div>
 
 </div>
 
 
-<mt:Include file="/home/88254/users/.home/domains/danandsherree.com/html/inc/footer.php">
+<mt:Include module="Footer">
 

@@ -1,12 +1,32 @@
 <mt:If name="entry_archive">
     <div id="path">
-        <span><a href="<mt:BlogURL>">Home</a>
-            <span><?php
-                $theglue = '<span>';
-                echo '<mt:EntryCategories glue="' . $theglue . '"><mt:ParentCategories glue="' . $theglue . '"><a href="/categories/<mt:ParentCategories glue="/"><mt:CategoryLabel dirify="1" trim_to="25"></mt:ParentCategories>/"><mt:CategoryLabel smarty_pants="1"></a></mt:ParentCategories></mt:EntryCategories>' . $theglue . '<mt:EntryTitle smarty_pants="1" encode_php="q">'; ?></span>
-                </span>
-            </span>
-        </span>
+        <ul>
+            <li>
+                <a href="<mt:BlogURL>">Home</a>
+        <mt:If tag="EntryCategories">
+            <mt:EntryCategories>
+                <mt:ParentCategories>
+                <ul>
+                    <li>
+                        <a href="<mt:BlogURL>categories/<mt:ParentCategories glue="/"><mt:CategoryLabel dirify="1" trim_to="25"></mt:ParentCategories>/"><mt:CategoryLabel smarty_pants="1"></a>
+                        <ul>
+                            <li>
+                                <mt:EntryTitle smarty_pants="1">
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                </mt:ParentCategories>
+            </mt:EntryCategories>
+        <mt:Else>
+                <ul>
+                    <li>
+                        <mt:EntryTitle smarty_pants="1">
+                    </li>
+                </ul>
+        </mt:If>
+            </li>
+        </ul>
     </div>
 
     <div class="byline">

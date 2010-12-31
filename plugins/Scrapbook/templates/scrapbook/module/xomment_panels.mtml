@@ -1,40 +1,39 @@
-<mt::SetVar name="static_panels_text" value="">
+<mt:SetVar name="static_panels_text" value="">
 <mt:SetVarTemplate name="static_panel_text">
     <mt:SetVarBlock name="static_panels_text" append="1">
-        <div id="Comment_Panel_<mt::Var name="panel">">
-            <mt::Include module="Xomment Panel">
+        <div id="Comment_Panel_<mt:Var name="panel">">
+            <mt:Include module="Xomment Panel">
         </div>
     </mt:SetVarBlock>
-    <li><a title="Comment Panel <mt::Var name="panel">" href="#Comment_Panel_<mt::var name="panel">"><span><mt::Var name="panel"></span></a></li>
+    <li><a title="Comment Panel <mt:Var name="panel">" href="#Comment_Panel_<mt:var name="panel">"><span><mt:Var name="panel"></span></a></li>
 </mt:SetVarTemplate>
-<h2 class="comments-header"><mt::EntryCommentCount singular="<span id="comments-count">1</span> Comment" plural="<span id="comments-count">#</span> Comments" none="<span id="comments-count">No</span> Comments"></h2>
+<h2 class="comments-header"><mt:EntryCommentCount singular="<span id="comments-count">1</span> Comment" plural="<span id="comments-count">#</span> Comments" none="<span id="comments-count">No</span> Comments"></h2>
 <div class="comments-content">
     <div id="comment-panels">
         <ul>
 <mt:XommentPanels size="$panel_size" static="$panel_static_list">
-    <mt:SetVarBlock name="first_comments" append="1"><mt:XommentPanelComments limit="1"><mt::CommentID>,</mt:XommentPanelComments></mt:SetVarBlock>
+    <mt:SetVarBlock name="first_comments" append="1"><mt:XommentPanelComments limit="1"><mt:CommentID>,</mt:XommentPanelComments></mt:SetVarBlock>
     <mt:If name="static_panel">
-        <mt::Var name="static_panel_text">
+        <mt:Var name="static_panel_text">
     <mt:Else>
-        <li><a title="Comment Panel <mt::Var name="panel">" href="<mt::CGIRelativeURL><mt::CommentScript>?__mode=xomment&amp;id=<mt::EntryID>&amp;s=<mt::Var name="panel_size">&amp;p=<mt::Var name="panel">&amp;r=<mt::Var name="rpanel">&amp;m=<mt::EntryCommentCount>"><span><mt::Var name="panel"></span></a></li>
+        <li><a title="Comment Panel <mt:Var name="panel">" href="<mt:CGIRelativeURL><mt:CommentScript>?__mode=xomment&amp;id=<mt:EntryID>&amp;s=<mt:Var name="panel_size">&amp;p=<mt:Var name="panel">&amp;r=<mt:Var name="rpanel">&amp;m=<mt:EntryCommentCount>"><span><mt:Var name="panel"></span></a></li>
     </mt:If>
 <mt:Else>
-    <mt::SetVar name="first_comments" value="0">
-    <mt::SetVar name="panel" value="1">
-    <mt::SetVar name="rpanel" value="-1">
-    <mt::Var name="static_panel_text">
+    <mt:SetVar name="first_comments" value="0">
+    <mt:SetVar name="panel" value="1">
+    <mt:SetVar name="rpanel" value="-1">
+    <mt:Var name="static_panel_text">
 </mt:XommentPanels>
         </ul>
-        <mt::Var name="static_panels_text">
+        <mt:Var name="static_panels_text">
     </div>
 </div>
 <script type="text/javascript">
 //<![CDATA[
-first_comments = [<mt::Var name="first_comments">];
-panel_size = <mt::Var name="panel_size">;
+first_comments = [<mt:Var name="first_comments">];
+panel_size = <mt:Var name="panel_size">;
 <mt:Comments lastn="1">
-last_comment = <mt::CommentID>;
+last_comment = <mt:CommentID>;
 </mt:Comments>
 //]]>
 </script>
-

@@ -1,20 +1,10 @@
-<h1><MTEntryTitle smarty_pants="1" widont="1"></h1>
+<h1><mt:EntryTitle smarty_pants="1" widont="1"></h1>
 
 <iframe src="http://www.facebook.com/plugins/like.php?href=<mt:EntryPermalink encode_url="1">&amp;layout=standard&amp;show_faces=false&amp;width=500&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:35px;" allowTransparency="true"></iframe>
 
 <mtEntryIfExtended>
     <div class="individualarchive-ad-top">
-        <script type="text/javascript"><!--
-        google_ad_client = "pub-0046305191831323";
-        /* 300x250 Entry &amp; Extended, created 2/22/08 */
-        google_ad_slot = "8566473201";
-        google_ad_width = 300;
-        google_ad_height = 250;
-        //-->
-        </script>
-        <script type="text/javascript"
-        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-        </script>
+        <mt:EntryBodyAndExtendedAd>
     </div>
 <mt:Else>
     <mt:EntryCategories>
@@ -26,51 +16,32 @@
     </mt:EntryCategories>
     <mt:Unless name="photos">
     <div style="float: left; margin: 0 15px 5px 0;">
-        <script type="text/javascript"><!--
-        google_ad_client = "pub-0046305191831323";
-        /* 300x250 Entry &amp; Extended, created 2/22/08 */
-        google_ad_slot = "8566473201";
-        google_ad_width = 300;
-        google_ad_height = 250;
-        //-->
-        </script>
-        <script type="text/javascript"
-        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-        </script>
+        <mt:EntryBodyOnlyAd>
     </div>
     </mt:Unless>
 </mt:EntryIfExtended>
 
-<div<MTEntryIfExtended> id="lead-in"</MTEntryIfExtended>>
-    <MTEntryBody smarty_pants="1" acronym="1" widont="1">
+<div<mt:EntryIfExtended> id="lead-in"</mt:EntryIfExtended>>
+    <mt:EntryBody smarty_pants="1" acronym="1" widont="1">
 </div>
 
-<MTEntryIfExtended>
+<mt:EntryIfExtended>
     <div class="more" id="more">
-        <MTEntryMore smarty_pants="1" acronym="1" widont="1">
+        <mt:EntryMore smarty_pants="1" acronym="1" widont="1">
     </div>
-</MTEntryIfExtended>
+</mt:EntryIfExtended>
 
-<MTIfNonEmpty tag="entrypoll">
+<mt:IfNonEmpty tag="entrypoll">
     <mt:SetVarBlock name="poll_id"><mt:EntryPoll></mt:SetVarBlock>
     <mt:IfPollIncluded poll_id="$poll_id">
         <div id="poll">
                 <mt:CompletePoll poll_id="$poll_id">
         </div>
     </mt:IfPollIncluded>
-</MTIfNonEmpty>
+</mt:IfNonEmpty>
 
-
-<div class="individualarchive-ad">
-<!-- PubMatic ad tag (Javascript) : Middle Banner | http://danandsherree.com | 468 x 60 banner -->
-<script type="text/javascript">
-var pubId=9970;
-var siteId=9971;
-var kadId=6952;
-var kadwidth=468;
-var kadheight=60;
-var kadtype=1;
-</script>
-<script type="text/javascript" src="http://ads.pubmatic.com/AdServer/js/showad.js">
- </script>
-</div>
+<mt:If tag="EntryAfterEntryAd">
+    <div class="individualarchive-ad">
+        <mt:EntryAfterEntryAd>
+    </div>
+</mt:If>
