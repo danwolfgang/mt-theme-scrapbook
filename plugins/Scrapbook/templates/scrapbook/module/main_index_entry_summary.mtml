@@ -1,5 +1,5 @@
 <h2 class="spacebefore">
-    <a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1" widont="1"></a>
+    <a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1" widont="1" default="&lt;entry&gt;"></a>
 </h2>
 
 <iframe src="http://www.facebook.com/plugins/like.php?href=<mt:EntryPermalink encode_url="1">&amp;layout=standard&amp;show_faces=false&amp;width=500&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:35px;" allowTransparency="true"></iframe>
@@ -18,7 +18,7 @@
 </mt:IfNonEmpty>
 
 <mt:EntryIfExtended>
-    <p>Continue reading <a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1"></a>.</p>
+    <p>Continue reading <a href="<mt:EntryPermalink>"><mt:EntryTitle smarty_pants="1" widont="1" default="&lt;entry&gt;"></a>.</p>
 </mt:EntryIfExtended>
 
 <div class="divider<?php echo mt_rand(1, 2); ?>"></div>

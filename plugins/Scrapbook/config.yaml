@@ -4,7 +4,7 @@ name: 'Scrapbook'
 description: 'The Scrapbook theme was originally created in 2005 for danandsherree.com'
 author_link: 'http://danandsherree.com'
 author_name: 'Dan Wolfgang'
-version: 1.1
+version: 1.1.1
 static_version: 2
 
 default_templates:

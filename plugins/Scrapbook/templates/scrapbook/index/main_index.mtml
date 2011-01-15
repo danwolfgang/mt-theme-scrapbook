@@ -67,7 +67,7 @@
         <ul>
             </mt:If>
             <li>
-                <a href="<mt:EntryPermalink>" title="Written on <mt:EntryDate format="%B %e, %Y at %l:%M %p"> EST"><mt:EntryTitle smarty_pants="1" widont="1"></a>
+                <a href="<mt:EntryPermalink>" title="Written on <mt:EntryDate format="%B %e, %Y at %l:%M %p"> EST"><mt:EntryTitle smarty_pants="1" default="&lt;entry&gt;"></a>
             </li>
             <mt:If name="__last__">
         </ul>
@@ -85,7 +85,7 @@
         <ul>
             </mt:if>
             <li>
-                <a href="<MTEntryPermalink>" title="Written on <MTEntryDate format="%B %e, %Y at %l:%M %p"> EST"><MTEntryTitle smarty_pants="1"></a>
+                <a href="<MTEntryPermalink>" title="Written on <mt:EntryDate format="%B %e, %Y at %l:%M %p"> EST"><MTEntryTitle smarty_pants="1" default="&lt;entry&gt;"></a>
             </li>
             <mt:If name="__last__">
         </ul>

@@ -11,7 +11,7 @@
                         <a href="<mt:BlogURL>categories/<mt:ParentCategories glue="/"><mt:CategoryLabel dirify="1" trim_to="25"></mt:ParentCategories>/"><mt:CategoryLabel smarty_pants="1"></a>
                         <ul>
                             <li>
-                                <mt:EntryTitle smarty_pants="1">
+                                <mt:EntryTitle smarty_pants="1" default="&lt;entry&gt;">
                             </li>
                         </ul>
                     </li>
@@ -21,7 +21,7 @@
         <mt:Else>
                 <ul>
                     <li>
-                        <mt:EntryTitle smarty_pants="1">
+                        <mt:EntryTitle smarty_pants="1" default="&lt;entry&gt;">
                     </li>
                 </ul>
         </mt:If>

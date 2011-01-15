@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=<mt:PublishCharset>" />
     <meta http-equiv="imagetoolbar" content="no" />
     <meta property="fb:app_id" content="35113519158" />
-    <title><mt:EntryTitle remove_html="1">, in the <mt:EntryCategories glue=", "><mt:ParentCategories glue=" &#62; "><mt:CategoryLabel remove_html="1"></mt:ParentCategories></mt:EntryCategories> &#62; category, on <mt:BlogName></title>
+    <title><mt:EntryTitle remove_html="1" default="&lt;entry&gt;">, in the <mt:EntryCategories glue=", "><mt:ParentCategories glue=" &#62; "><mt:CategoryLabel remove_html="1"></mt:ParentCategories></mt:EntryCategories> &#62; category, on <mt:BlogName></title>
     <link rel="stylesheet" href="<mt:StaticWebPath>plugins/ActionStreams/css/action-streams.css" type="text/css" />
     <link rel="stylesheet" href="<mt:Link template="styles">" type="text/css" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<mt:FeedburnerURL>" />
@@ -42,7 +42,7 @@
       xd_receiver_url: '<mt:StaticWebPath>plugins/FacebookCommenters/xd_receiver.html'
     };
     var story = {
-      title: '<mt:EntryTitle encode_js="1">',
+      title: '<mt:EntryTitle encode_js="1" default="&lt;entry&gt;">',
       url: '<mt:EntryPermalink>',
       excerpt: '<mt:EntryExcerpt encode_js="1">',
       xid: 'entry-<mt:EntryID>',
